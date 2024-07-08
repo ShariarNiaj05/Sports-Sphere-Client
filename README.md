@@ -25,6 +25,8 @@ The primary purpose of Sports Sphere is to create a comprehensive and user-frien
 - List of key features or functionalities.
 - Bullet points are helpful for clarity.
 
+## Technology Stack
+
 ### Frontend
 
 - React ⚛️
