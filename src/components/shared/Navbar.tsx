@@ -12,7 +12,10 @@ const Navbar = () => {
   return (
     <div className=" max-w-7xl mx-auto flex justify-between py-5 font-bold">
       {/* logo div  */}
-      <div>log0</div>
+      <div>
+        {" "}
+        <Link to={"/"}>Sports Sphere</Link>
+      </div>
 
       {/* pages div  */}
       <div>
