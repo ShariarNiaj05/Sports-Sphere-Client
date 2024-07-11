@@ -1,11 +1,4 @@
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarTrigger,
-} from "@radix-ui/react-menubar";
+import { Menubar, MenubarMenu, MenubarTrigger } from "@radix-ui/react-menubar";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
