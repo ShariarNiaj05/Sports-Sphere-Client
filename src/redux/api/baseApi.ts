@@ -2,13 +2,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
+const baseUrl = "http://localhost:5000/api/v1";
+// const baseUrl = "https://sports-sphere-server-swart.vercel.app//api/v1";
 export const baseApi = createApi({
   reducerPath: "baseApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
+  baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
   endpoints: (builder) => ({
-    setup: builder.query({
+    product: builder.query({
       query: () => ({
-        url: "/setup",
+        url: "/product",
         method: "GET",
       }),
     }),
@@ -17,4 +19,4 @@ export const baseApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useSetupQuery } = baseApi;
+export const { useProductQuery } = baseApi;
