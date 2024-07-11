@@ -13,6 +13,8 @@ import { FaBoxesStacked } from "react-icons/fa6";
 import { PiSoccerBallFill } from "react-icons/pi";
 import { MdOutlineSportsRugby } from "react-icons/md";
 import { GiBaseballBat } from "react-icons/gi";
+import Rating from "react-rating";
+import { Star } from "lucide-react";
 
 const Featured = () => {
   const { data, isError, isFetching, isLoading } = useProductQuery({});
@@ -72,7 +74,16 @@ const Featured = () => {
                 </p>
               </CardContent>
 
-              <CardFooter>{/* <RatingModal movie={products} /> */}</CardFooter>
+              <CardFooter>
+                {/* <RatingModal movie={products} /> */}
+                {/* @ts-expect-error their is no type declaration file for react rating*/}
+                <Rating
+                  emptySymbol={<Star size={20} color="orange" />}
+                  fullSymbol={<Star size={20} color="orange" fill="orange" />}
+                  initialRating={product?.rating}
+                  readonly
+                />
+              </CardFooter>
             </Card>
           ))}
         </div>
