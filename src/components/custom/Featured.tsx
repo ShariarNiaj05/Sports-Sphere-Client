@@ -15,6 +15,7 @@ import { MdOutlineSportsRugby } from "react-icons/md";
 import { GiBaseballBat } from "react-icons/gi";
 import Rating from "react-rating";
 import { Star } from "lucide-react";
+import ProductCard from "../shared/ProductCard";
 
 const Featured = () => {
   const { data, isError, isFetching, isLoading } = useProductQuery({});
@@ -28,63 +29,8 @@ const Featured = () => {
 
         {/* card section  */}
         <div className="mt-28 grid grid-cols-3 gap-6">
-          {products?.map((product: IProduct) => (
-            <Card className="text-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <CardHeader className="p-2">
-                <img
-                  src={product?.image}
-                  className="h-[400px] w-full object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
-                  alt={product?.productName}
-                />
-              </CardHeader>
-              <CardContent className="grid p-4">
-                <div className="flex justify-between items-center gap-2">
-                  {/* <Star color="orange" fill="orange" /> */}
-                  <p className="text-xl font-semibold text-gray-400  flex gap-2 items-center">
-                    {product?.sportsCategory}
-                    <span>
-                      {product?.sportsCategory === "Soccer" && (
-                        <PiSoccerBallFill />
-                      )}
-                      {product?.sportsCategory === "Rugby" && (
-                        <MdOutlineSportsRugby />
-                      )}
-                      {product?.sportsCategory === "Baseball" && (
-                        <GiBaseballBat />
-                      )}
-                    </span>
-                  </p>
-                  <p className="text-xl font-semibold text-gray-400 flex justify-center items-center gap-2">
-                    <span className="bg-white p-1 rounded-md">
-                      <FaBoxesStacked className="text-black" />
-                    </span>
-                    {product?.stockQuantity}
-                  </p>
-                </div>
-
-                <CardTitle className="mt-2 text-3xl font-extrabold">
-                  {product?.productName}
-                </CardTitle>
-
-                <CardTitle className="mt-2 text-base font-extrabold">
-                  {product?.brand}
-                </CardTitle>
-                <p className="text-lg mt-4 text-gray-400">
-                  {product?.productDescription}
-                </p>
-              </CardContent>
-
-              <CardFooter>
-                {/* <RatingModal movie={products} /> */}
-                {/* @ts-expect-error their is no type declaration file for react rating*/}
-                <Rating
-                  emptySymbol={<Star size={20} color="orange" />}
-                  fullSymbol={<Star size={20} color="orange" fill="orange" />}
-                  initialRating={product?.rating}
-                  readonly
-                />
-              </CardFooter>
-            </Card>
+          {products?.slice(0, 6)?.map((product: IProduct) => (
+            <ProductCard product={product} />
           ))}
         </div>
       </div>
