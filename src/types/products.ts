@@ -1,4 +1,5 @@
 export interface IProduct {
+  _id: string;
   brand: string;
   productName: string;
   sportsCategory: string;

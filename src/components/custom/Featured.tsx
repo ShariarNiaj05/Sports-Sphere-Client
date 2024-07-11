@@ -1,24 +1,14 @@
 import { useProductQuery } from "@/redux/api/baseApi";
 import Container from "../shared/Container";
 import Title from "./Title";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+
 import { IProduct } from "@/types/products";
-import { FaBoxesStacked } from "react-icons/fa6";
-import { PiSoccerBallFill } from "react-icons/pi";
-import { MdOutlineSportsRugby } from "react-icons/md";
-import { GiBaseballBat } from "react-icons/gi";
-import Rating from "react-rating";
-import { Star } from "lucide-react";
+
 import ProductCard from "../shared/ProductCard";
 
 const Featured = () => {
-  const { data, isError, isFetching, isLoading } = useProductQuery({});
+  // const { data, isError, isFetching, isLoading } = useProductQuery({});
+  const { data } = useProductQuery({});
   const products = data?.data;
   // <Loading />
   console.log(data);
