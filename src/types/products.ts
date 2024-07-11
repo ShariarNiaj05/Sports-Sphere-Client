@@ -1,8 +1,8 @@
 export interface IProduct {
+  brand: string;
   productName: string;
   sportsCategory: string;
   stockQuantity: number;
-  branch: string;
   rating: number;
   productDescription: string;
   price: number;

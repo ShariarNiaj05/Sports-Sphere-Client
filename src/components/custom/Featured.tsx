@@ -1,7 +1,6 @@
 import { useProductQuery } from "@/redux/api/baseApi";
 import Container from "../shared/Container";
 import Title from "./Title";
-import Loading from "../shared/Loading";
 import {
   Card,
   CardContent,
@@ -9,8 +8,11 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { Link } from "react-router-dom";
 import { IProduct } from "@/types/products";
+import { FaBoxesStacked } from "react-icons/fa6";
+import { PiSoccerBallFill } from "react-icons/pi";
+import { MdOutlineSportsRugby } from "react-icons/md";
+import { GiBaseballBat } from "react-icons/gi";
 
 const Featured = () => {
   const { data, isError, isFetching, isLoading } = useProductQuery({});
@@ -34,17 +36,36 @@ const Featured = () => {
                 />
               </CardHeader>
               <CardContent className="grid p-4">
-                <div className="flex items-center gap-2">
+                <div className="flex justify-between items-center gap-2">
                   {/* <Star color="orange" fill="orange" /> */}
-                  <p className="text-xl font-semibold text-gray-400">
+                  <p className="text-xl font-semibold text-gray-400  flex gap-2 items-center">
                     {product?.sportsCategory}
+                    <span>
+                      {product?.sportsCategory === "Soccer" && (
+                        <PiSoccerBallFill />
+                      )}
+                      {product?.sportsCategory === "Rugby" && (
+                        <MdOutlineSportsRugby />
+                      )}
+                      {product?.sportsCategory === "Baseball" && (
+                        <GiBaseballBat />
+                      )}
+                    </span>
                   </p>
-                  <p className="text-xl font-semibold text-gray-400">
+                  <p className="text-xl font-semibold text-gray-400 flex justify-center items-center gap-2">
+                    <span className="bg-white p-1 rounded-md">
+                      <FaBoxesStacked className="text-black" />
+                    </span>
                     {product?.stockQuantity}
                   </p>
                 </div>
+
                 <CardTitle className="mt-2 text-3xl font-extrabold">
                   {product?.productName}
+                </CardTitle>
+
+                <CardTitle className="mt-2 text-base font-extrabold">
+                  {product?.brand}
                 </CardTitle>
                 <p className="text-lg mt-4 text-gray-400">
                   {product?.productDescription}
