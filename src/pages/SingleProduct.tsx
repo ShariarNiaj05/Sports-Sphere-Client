@@ -15,11 +15,23 @@ import { FaBoxesStacked } from "react-icons/fa6";
 import { Star } from "lucide-react";
 import Rating from "react-rating";
 import { Button } from "@/components/ui/button";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { addToCart } from "@/redux/features/cartSlice";
+import { RootState } from "@/redux/store";
 
 const SingleProduct = () => {
   const { id } = useParams();
+  const dispatch = useAppDispatch();
   const { data } = useSingleProductQuery(id);
   const product = data?.data;
+  const cart = useAppSelector((state: RootState) => state.cart);
+
+  console.log(cart);
+  const handleCart = () => {
+    if (product) {
+      dispatch(addToCart(product));
+    }
+  };
   return (
     <Container>
       <div className="mt-20">
@@ -82,7 +94,7 @@ const SingleProduct = () => {
               initialRating={product?.rating}
               readonly
             />
-            <Button>Add To Cart</Button>
+            <Button onClick={handleCart}>Add To Cart</Button>
           </CardFooter>
         </div>
       </div>

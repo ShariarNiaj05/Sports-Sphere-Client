@@ -20,6 +20,13 @@ export const baseApi = createApi({
         method: "GET",
       }),
     }),
+    // addToCart: builder.mutation({
+    //   query: (productInfo) => ({
+    //     url: "/add-to-cart",
+    //     method: "PUT",
+    //     body: productInfo,
+    //   }),
+    // }),
   }),
 });
 
