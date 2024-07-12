@@ -3,6 +3,15 @@ import Container from "@/components/shared/Container";
 import Loading from "@/components/shared/Loading";
 import ProductCard from "@/components/shared/ProductCard";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useProductQuery } from "@/redux/api/baseApi";
 import { IProduct } from "@/types/products";
 import { useEffect, useState } from "react";
@@ -92,19 +101,31 @@ const AllProduct = () => {
             <Input
               type="text"
               placeholder="Search products..."
-              className="w-[30%]"
+              className="w-[25%]"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            {/* <input
-              type="text"
-              placeholder="Search products..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
- */}
+
             {/* category  */}
-            <select
+            <Select
+              onValueChange={(value) =>
+                setFilters({ ...filters, category: value })
+              }
+            >
+              <SelectTrigger value={filters.category} className="w-[180px]">
+                <SelectValue placeholder="Select a sport" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Sport</SelectLabel>
+                  <SelectItem value="Baseball">Baseball</SelectItem>
+                  <SelectItem value="Rugby">Rugby</SelectItem>
+                  <SelectItem value="Soccer">Soccer</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+
+            {/*   <select
               value={filters.category}
               onChange={(e) =>
                 setFilters({ ...filters, category: e.target.value })
@@ -113,9 +134,8 @@ const AllProduct = () => {
               <option value="">All Categories</option>
               <option value="Rugby">Rugby</option>
               <option value="Soccer">Soccer</option>
-              {/* Add more options as needed */}
-            </select>
-
+     
+            </select> */}
             {/* price range  */}
             <input
               type="range"
@@ -129,7 +149,6 @@ const AllProduct = () => {
                 })
               }
             />
-
             {/* brand filter  */}
             <select
               value={filters.brand}
@@ -142,7 +161,6 @@ const AllProduct = () => {
               <option value="adidas">Adidas</option>
               {/* Add more options as needed */}
             </select>
-
             {/* rating filter  */}
             <select
               value={filters.rating}
@@ -155,7 +173,6 @@ const AllProduct = () => {
               <option value="2">2 Stars & Up</option>
               {/* Add more options as needed */}
             </select>
-
             {/* sorting option  */}
             <select
               value={sortOption}
@@ -165,7 +182,6 @@ const AllProduct = () => {
               <option value="priceDesc">Price: High to Low</option>
               {/* Add more options as needed */}
             </select>
-
             {/* clear filter  */}
             <button onClick={handleClearFilters}>Clear Filters</button>
           </div>
