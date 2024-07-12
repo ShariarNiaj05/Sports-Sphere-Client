@@ -1,5 +1,6 @@
 import { Menubar, MenubarMenu, MenubarTrigger } from "@radix-ui/react-menubar";
 import { Link } from "react-router-dom";
+import { FaCartPlus } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
@@ -38,7 +39,11 @@ const Navbar = () => {
 
       {/* Cart icon  */}
 
-      <div>cart</div>
+      <div>
+        <Link to={"/cart"}>
+          <FaCartPlus className="text-xl" />
+        </Link>
+      </div>
     </div>
   );
 };

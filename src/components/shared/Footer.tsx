@@ -1,5 +1,25 @@
+import { Link } from "react-router-dom";
+import {
+  FaFacebookSquare,
+  FaInstagramSquare,
+  FaYoutubeSquare,
+} from "react-icons/fa";
+
 const Footer = () => {
-  return <div>footer</div>;
+  return (
+    <div className="mt-3 max-w-7xl mx-auto flex justify-between py-5 font-bold">
+      <div>
+        {" "}
+        <Link to={"/"}>Sports Sphere</Link>
+      </div>
+
+      <div className="flex gap-2 text-2xl">
+        <FaFacebookSquare />
+        <FaInstagramSquare />
+        <FaYoutubeSquare />
+      </div>
+    </div>
+  );
 };
 
 export default Footer;

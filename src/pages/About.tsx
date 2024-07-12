@@ -1,3 +1,4 @@
+import Contact from "@/components/custom/Contact";
 import Title from "@/components/custom/Title";
 
 const About = () => {
@@ -89,6 +90,55 @@ const About = () => {
                   offerings and services. Our goal is to foster a community
                   where everyone can access the best equipment and resources to
                   pursue their passion for sports and an active lifestyle.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Contact />
+
+        <div>
+          {/* who we are and what we do div  */}
+          <div className=" flex flex-col lg:flex-row gap-5  max-w-7xl mx-auto">
+            {/* who we are div  */}
+            <div className=" flex-1 h-52">
+              <h2 className=" pl-8 text-start mt-16 text-2xl font-bold">
+                Teams and Contribution
+              </h2>
+
+              <p className=" mt-5 bg-slate-100  h-64 p-8 rounded-md text-justify">
+                At Sports Sphere, we are passionate about sports and committed
+                to supporting athletes and enthusiasts in reaching their full
+                potential. Our dedicated team works tirelessly to curate a
+                diverse selection of high-quality equipment, apparel, and
+                accessories for all types of sports. We aim to provide a
+                seamless and enjoyable shopping experience, ensuring you have
+                the best gear to elevate your performance. By joining us, you
+                become part of a community that values excellence, innovation,
+                and the spirit of sportsmanship. Together, let's elevate your
+                game with the best in sporting goods.
+              </p>
+            </div>
+
+            {/* what we do div  */}
+            <div className=" flex-1">
+              <div className=" flex-1">
+                <h2 className=" pl-8  text-start mt-16 text-2xl font-bold">
+                  Location
+                </h2>
+
+                <p className="  mt-5 bg-slate-100 md:h-64 p-8 rounded-md text-justify">
+                  Welcome to Sports Sphere, your premier destination for
+                  sporting goods in the heart of Metro City. Located at the
+                  bustling Sports Plaza, our store offers a wide array of
+                  high-quality equipment, apparel, and accessories for athletes,
+                  sports enthusiasts, and casual players alike. Whether you're
+                  gearing up for competitive matches or enjoying recreational
+                  activities, Sports Sphere is your go-to spot for everything
+                  sports-related. Explore our store today and experience a
+                  seamless shopping journey that caters to your passion for
+                  sports and active lifestyle.
                 </p>
               </div>
             </div>

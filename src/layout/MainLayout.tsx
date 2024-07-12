@@ -9,8 +9,12 @@ const MainLayout = () => {
         <Navbar></Navbar>
       </div>
 
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <div className="min-h-[80vh]">
+        <Outlet></Outlet>
+      </div>
+      <div className="bg-primary text-white">
+        <Footer></Footer>
+      </div>
     </div>
   );
 };
