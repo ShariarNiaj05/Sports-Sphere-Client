@@ -2,6 +2,7 @@ import Title from "@/components/custom/Title";
 import Container from "@/components/shared/Container";
 import Loading from "@/components/shared/Loading";
 import ProductCard from "@/components/shared/ProductCard";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -12,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 import { useProductQuery } from "@/redux/api/baseApi";
 import { IProduct } from "@/types/products";
 import { useEffect, useState } from "react";
@@ -96,7 +98,7 @@ const AllProduct = () => {
         <div className=" mt-20 flex flex-col gap-10">
           {/* filter section  */}
 
-          <div className=" flex justify-between">
+          <div className=" flex flex-col lg:flex-row gap-5 justify-between">
             {/* search  */}
             <Input
               type="text"
@@ -125,19 +127,6 @@ const AllProduct = () => {
               </SelectContent>
             </Select>
 
-            {/* price range  */}
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value={filters.priceRange[1]}
-              onChange={(e) =>
-                setFilters({
-                  ...filters,
-                  priceRange: [0, Number(e.target.value)],
-                })
-              }
-            />
             {/* brand filter  */}
             <Select
               onValueChange={
@@ -151,7 +140,6 @@ const AllProduct = () => {
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>All Brands</SelectLabel>
-                  <SelectItem value="All Brands">All Brands</SelectItem>
                   <SelectItem value="Berlin">Berlin</SelectItem>
                   <SelectItem value="Under Armour">Under Armour</SelectItem>
                   <SelectItem value="Wilson">Wilson</SelectItem>
@@ -187,20 +175,45 @@ const AllProduct = () => {
             </Select>
 
             {/* sorting option  */}
-            <select
-              value={sortOption}
-              onChange={(e) => setSortOption(e.target.value)}
+
+            <Select
+              onValueChange={
+                (value) => setSortOption(value)
+                // setFilters({ ...filters, brand: e.target.value })
+              }
             >
-              <option value="priceAsc">Price: Low to High</option>
-              <option value="priceDesc">Price: High to Low</option>
-              {/* Add more options as needed */}
-            </select>
+              <SelectTrigger value={sortOption} className="w-[180px]">
+                <SelectValue placeholder="Price" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>All Ratings</SelectLabel>
+
+                  <SelectItem value="priceAsc">Price: Low to High</SelectItem>
+                  <SelectItem value="priceDesc">Price: High to Low</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+
+            {/* price range  */}
+
+            <Slider
+              defaultValue={[33]}
+              max={1000}
+              step={1}
+              className="w-[15%]"
+              onValueChange={(value) =>
+                setFilters({ ...filters, priceRange: [0, Number(value)] })
+              }
+            />
+
             {/* clear filter  */}
-            <button onClick={handleClearFilters}>Clear Filters</button>
+            <Button onClick={handleClearFilters}>Clear Filters</Button>
+            {/* <button onClick={handleClearFilters}>Clear Filters</button> */}
           </div>
 
           {/* All Product section  */}
-          <div className=" grid grid-cols-3 gap-6">
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filterdProducts?.map((product: IProduct) => (
               <ProductCard product={product} />
             ))}
