@@ -95,7 +95,7 @@ const AllProduct = () => {
     <Container>
       <div className="mt-20">
         <Title>All Product</Title>
-        <div className=" mt-20 flex flex-col gap-10">
+        <div className=" mt-20 flex flex-col gap-10  px-5">
           {/* filter section  */}
 
           <div className=" flex flex-col lg:flex-row gap-5 justify-between">
@@ -103,7 +103,7 @@ const AllProduct = () => {
             <Input
               type="text"
               placeholder="Search products..."
-              className="w-[25%]"
+              className="lg:w-[25%]"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -114,7 +114,10 @@ const AllProduct = () => {
                 setFilters({ ...filters, category: value })
               }
             >
-              <SelectTrigger value={filters.category} className="w-[180px]">
+              <SelectTrigger
+                value={filters.category}
+                className="w-full lg:w-[15%]"
+              >
                 <SelectValue placeholder="Select a sport" />
               </SelectTrigger>
               <SelectContent>
@@ -134,7 +137,10 @@ const AllProduct = () => {
                 // setFilters({ ...filters, brand: e.target.value })
               }
             >
-              <SelectTrigger value={filters.brand} className="w-[180px]">
+              <SelectTrigger
+                value={filters.brand}
+                className="w-full lg:w-[15%]"
+              >
                 <SelectValue placeholder="Brands" />
               </SelectTrigger>
               <SelectContent>
@@ -158,7 +164,10 @@ const AllProduct = () => {
                 // setFilters({ ...filters, brand: e.target.value })
               }
             >
-              <SelectTrigger value={filters.rating} className="w-[180px]">
+              <SelectTrigger
+                value={filters.rating}
+                className="w-full lg:w-[15%]"
+              >
                 <SelectValue placeholder="Ratings" />
               </SelectTrigger>
               <SelectContent>
@@ -182,7 +191,7 @@ const AllProduct = () => {
                 // setFilters({ ...filters, brand: e.target.value })
               }
             >
-              <SelectTrigger value={sortOption} className="w-[180px]">
+              <SelectTrigger value={sortOption} className="w-full lg:w-[15%]">
                 <SelectValue placeholder="Price" />
               </SelectTrigger>
               <SelectContent>
@@ -201,7 +210,7 @@ const AllProduct = () => {
               defaultValue={[33]}
               max={1000}
               step={1}
-              className="w-[15%]"
+              className="w-full lg:w-[15%]"
               onValueChange={(value) =>
                 setFilters({ ...filters, priceRange: [0, Number(value)] })
               }
