@@ -4,6 +4,7 @@ import AllProduct from "@/pages/AllProduct";
 import Home from "@/pages/Home";
 import Manage from "@/pages/Manage";
 import SingleProduct from "@/pages/SingleProduct";
+import SportsCategory from "@/pages/SportsCategory";
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <SingleProduct />,
+      },
+      {
+        path: "/category/:sportsCategory",
+        element: <SportsCategory />,
       },
       {
         path: "/manage",

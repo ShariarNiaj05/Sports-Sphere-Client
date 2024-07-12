@@ -20,7 +20,7 @@ const Featured = () => {
         <Title>Featured</Title>
 
         {/* card section  */}
-        <div className="mt-28 grid grid-cols-3 gap-6">
+        <div className="mt-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products?.slice(0, 6)?.map((product: IProduct) => (
             <ProductCard product={product} />
           ))}
