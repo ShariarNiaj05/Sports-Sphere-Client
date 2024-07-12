@@ -1,4 +1,5 @@
 import Categories from "@/components/custom/Categories";
+import Contact from "@/components/custom/Contact";
 import Featured from "@/components/custom/Featured";
 import HeroSection from "@/components/custom/HeroSection";
 
@@ -8,6 +9,7 @@ const Home = () => {
       <HeroSection />
       <Featured />
       <Categories />
+      <Contact />
     </div>
   );
 };
