@@ -1,11 +1,11 @@
 import { IProduct } from "@/types/products";
 import { createSlice } from "@reduxjs/toolkit";
 
-interface iCartInitialState extends IProduct {
+export interface ICartProduct extends IProduct {
   quantity: number;
   totalPrice: number;
 }
-const cartInitialState: iCartInitialState[] = [];
+const cartInitialState: ICartProduct[] = [];
 
 export const cartSlice = createSlice({
   name: "cart",

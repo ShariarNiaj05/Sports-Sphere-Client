@@ -16,15 +16,24 @@ import { Star } from "lucide-react";
 import Rating from "react-rating";
 import { Button } from "@/components/ui/button";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { addToCart } from "@/redux/features/cartSlice";
+import { addToCart, ICartProduct } from "@/redux/features/cartSlice";
 import { RootState } from "@/redux/store";
+import Loading from "@/components/shared/Loading";
 
 const SingleProduct = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const { data } = useSingleProductQuery(id);
+  const { data, isLoading, isFetching } = useSingleProductQuery(id);
   const product = data?.data;
-  const cart = useAppSelector((state: RootState) => state.cart);
+
+  const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
+
+  if (isLoading || isFetching) {
+    return <Loading />;
+  }
+  const cartProduct: ICartProduct | undefined = cart?.find(
+    (item) => item._id === product._id
+  );
 
   console.log(cart);
   const handleCart = () => {
@@ -94,7 +103,13 @@ const SingleProduct = () => {
               initialRating={product?.rating}
               readonly
             />
-            <Button onClick={handleCart}>Add To Cart</Button>
+            {cartProduct?.quantity === product?.stockQuantity ? (
+              <Button className="bg-gray-300 text-black">
+                Stock Limit Exceeded
+              </Button>
+            ) : (
+              <Button onClick={handleCart}>Add To Cart</Button>
+            )}
           </CardFooter>
         </div>
       </div>
