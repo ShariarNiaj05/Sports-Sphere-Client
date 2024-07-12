@@ -5,13 +5,15 @@ import Title from "./Title";
 import { IProduct } from "@/types/products";
 
 import ProductCard from "../shared/ProductCard";
+import Loading from "../shared/Loading";
 
 const Featured = () => {
-  // const { data, isError, isFetching, isLoading } = useProductQuery({});
-  const { data } = useProductQuery({});
+  const { data, isFetching, isLoading } = useProductQuery({});
   const products = data?.data;
-  // <Loading />
-  console.log(data);
+  if (isFetching || isLoading) {
+    <Loading />;
+  }
+
   return (
     <Container>
       <div className="my-28">
