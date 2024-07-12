@@ -27,7 +27,6 @@ const SportsCategory = () => {
       (sportsCategory.toLowerCase() as string)
   );
 
-  console.log(filteredProducts);
   return (
     <Container>
       <div className="my-28">
@@ -45,21 +44,3 @@ const SportsCategory = () => {
 };
 
 export default SportsCategory;
-
-{
-  /* <div>
-{" "}
-<div>
-  <h1>{sportsCategory}</h1>
-  {filteredProducts?.length > 0 ? (
-    <ul>
-      {filteredProducts.map((product: IProduct) => (
-        <li key={product._id}>{product.productName}</li>
-      ))}
-    </ul>
-  ) : (
-    <p>No products found for this category.</p>
-  )}
-</div>
-</div> */
-}
