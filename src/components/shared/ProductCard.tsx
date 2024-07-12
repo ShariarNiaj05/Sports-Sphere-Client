@@ -58,7 +58,6 @@ const ProductCard = ({ product }: { product: IProduct }) => {
       </CardContent>
 
       <CardFooter className=" flex flex-col">
-        {/* <RatingModal movie={products} /> */}
         {/* @ts-expect-error their is no type declaration file for react rating*/}
         <Rating
           emptySymbol={<Star size={20} color="orange" />}
