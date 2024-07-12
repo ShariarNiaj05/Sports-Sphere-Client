@@ -2,6 +2,7 @@ import Title from "@/components/custom/Title";
 import Container from "@/components/shared/Container";
 import Loading from "@/components/shared/Loading";
 import ProductCard from "@/components/shared/ProductCard";
+import { Input } from "@/components/ui/input";
 import { useProductQuery } from "@/redux/api/baseApi";
 import { IProduct } from "@/types/products";
 import { useEffect, useState } from "react";
@@ -86,13 +87,23 @@ const AllProduct = () => {
         <div className=" mt-20 flex flex-col gap-10">
           {/* filter section  */}
 
-          <div>
-            <input
+          <div className=" flex justify-between">
+            {/* search  */}
+            <Input
+              type="text"
+              placeholder="Search products..."
+              className="w-[30%]"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            {/* <input
               type="text"
               placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
+ */}
+            {/* category  */}
             <select
               value={filters.category}
               onChange={(e) =>
@@ -100,10 +111,12 @@ const AllProduct = () => {
               }
             >
               <option value="">All Categories</option>
-              <option value="football">Football</option>
-              <option value="basketball">Basketball</option>
+              <option value="Rugby">Rugby</option>
+              <option value="Soccer">Soccer</option>
               {/* Add more options as needed */}
             </select>
+
+            {/* price range  */}
             <input
               type="range"
               min="0"
@@ -116,6 +129,8 @@ const AllProduct = () => {
                 })
               }
             />
+
+            {/* brand filter  */}
             <select
               value={filters.brand}
               onChange={(e) =>
@@ -127,6 +142,8 @@ const AllProduct = () => {
               <option value="adidas">Adidas</option>
               {/* Add more options as needed */}
             </select>
+
+            {/* rating filter  */}
             <select
               value={filters.rating}
               onChange={(e) =>
@@ -138,6 +155,8 @@ const AllProduct = () => {
               <option value="2">2 Stars & Up</option>
               {/* Add more options as needed */}
             </select>
+
+            {/* sorting option  */}
             <select
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
@@ -146,6 +165,8 @@ const AllProduct = () => {
               <option value="priceDesc">Price: High to Low</option>
               {/* Add more options as needed */}
             </select>
+
+            {/* clear filter  */}
             <button onClick={handleClearFilters}>Clear Filters</button>
           </div>
 
