@@ -12,15 +12,15 @@ const Loading = () => {
       >
         <path
           d="M7 8H3V16H7V8Z"
-          className="animate animate-bounce fill-[#ff0000] "
+          className="animate animate-bounce fill-primary "
         />
         <path
           d="M14 8H10V16H14V8Z"
-          className="animate animate-bounce fill-[#ff0000] [animation-delay:.2s]"
+          className="animate animate-bounce fill-primary [animation-delay:.2s]"
         />
         <path
           d="M21 8H17V16H21V8Z"
-          className="animate animate-bounce fill-[#ff0000] [animation-delay:.4s]"
+          className="animate animate-bounce fill-primary [animation-delay:.4s]"
         />
       </svg>
     </div>

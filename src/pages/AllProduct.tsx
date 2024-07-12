@@ -125,17 +125,6 @@ const AllProduct = () => {
               </SelectContent>
             </Select>
 
-            {/*   <select
-              value={filters.category}
-              onChange={(e) =>
-                setFilters({ ...filters, category: e.target.value })
-              }
-            >
-              <option value="">All Categories</option>
-              <option value="Rugby">Rugby</option>
-              <option value="Soccer">Soccer</option>
-     
-            </select> */}
             {/* price range  */}
             <input
               type="range"
@@ -150,29 +139,53 @@ const AllProduct = () => {
               }
             />
             {/* brand filter  */}
-            <select
-              value={filters.brand}
-              onChange={(e) =>
-                setFilters({ ...filters, brand: e.target.value })
+            <Select
+              onValueChange={
+                (value) => setFilters({ ...filters, brand: value })
+                // setFilters({ ...filters, brand: e.target.value })
               }
             >
-              <option value="">All Brands</option>
-              <option value="nike">Nike</option>
-              <option value="adidas">Adidas</option>
-              {/* Add more options as needed */}
-            </select>
+              <SelectTrigger value={filters.brand} className="w-[180px]">
+                <SelectValue placeholder="Brands" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>All Brands</SelectLabel>
+                  <SelectItem value="All Brands">All Brands</SelectItem>
+                  <SelectItem value="Berlin">Berlin</SelectItem>
+                  <SelectItem value="Under Armour">Under Armour</SelectItem>
+                  <SelectItem value="Wilson">Wilson</SelectItem>
+                  <SelectItem value="Puma">Puma</SelectItem>
+                  <SelectItem value="Nike">Nike</SelectItem>
+                  <SelectItem value="Reebok">Reebok</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+
             {/* rating filter  */}
-            <select
-              value={filters.rating}
-              onChange={(e) =>
-                setFilters({ ...filters, rating: Number(e.target.value) })
+
+            <Select
+              onValueChange={
+                (value) => setFilters({ ...filters, rating: Number(value) })
+                // setFilters({ ...filters, brand: e.target.value })
               }
             >
-              <option value="0">All Ratings</option>
-              <option value="1">1 Star & Up</option>
-              <option value="2">2 Stars & Up</option>
-              {/* Add more options as needed */}
-            </select>
+              <SelectTrigger value={filters.rating} className="w-[180px]">
+                <SelectValue placeholder="Ratings" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>All Ratings</SelectLabel>
+
+                  <SelectItem value="1">1 Star & Up</SelectItem>
+                  <SelectItem value="2">2 Star & Up</SelectItem>
+                  <SelectItem value="3">3 Star & Up</SelectItem>
+                  <SelectItem value="4">4 Star & Up</SelectItem>
+                  <SelectItem value="5">5 Star</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+
             {/* sorting option  */}
             <select
               value={sortOption}
