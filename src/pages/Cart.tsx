@@ -1,7 +1,7 @@
 import Title from "@/components/custom/Title";
 import Container from "@/components/shared/Container";
-import { ICartProduct } from "@/redux/features/cartSlice";
-import { useAppSelector } from "@/redux/hooks";
+import { addToCart, ICartProduct } from "@/redux/features/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { Star } from "lucide-react";
 import Rating from "react-rating";
@@ -47,10 +47,16 @@ const products = [
 
 const Cart = () => {
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
+  const dispatch = useAppDispatch();
   console.log(cart);
   if (!cart || cart === undefined) {
     <div>Cart is empty</div>;
   }
+  const handleIncrement = (item: ICartProduct) => {
+    if (item.stockQuantity > item.quantity) {
+      dispatch(addToCart(item));
+    }
+  };
 
   return (
     <Container>
@@ -94,10 +100,15 @@ const Cart = () => {
                   </div>
                   {/* action div  */}
                   <div className="flex justify-center gap-3">
-                    <div className="flex gap-3 justify-center">
+                    <div className="flex gap-3 justify-center cursor-pointer">
                       <span>-</span>
                       <p className="font-bold">{item?.quantity}</p>
-                      <span className="font-bold text-primary">+</span>
+                      <span
+                        onClick={() => handleIncrement(item)}
+                        className="font-bold text-primary cursor-pointer"
+                      >
+                        +
+                      </span>
                     </div>
                     <div>
                       {" "}
