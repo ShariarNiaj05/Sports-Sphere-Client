@@ -9,8 +9,8 @@ import {
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { Star } from "lucide-react";
-import { useEffect } from "react";
 import Rating from "react-rating";
+import { MdDeleteForever } from "react-icons/md";
 
 const products = [
   {
@@ -55,6 +55,16 @@ const Cart = () => {
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
   const dispatch = useAppDispatch();
   console.log(cart);
+
+  // Calculate subtotal
+  const subtotal = cart.reduce((total, item) => total + item.totalPrice, 0);
+
+  // Calculate VAT (15%)
+  const vat = subtotal * 0.15;
+
+  // Calculate total price including VAT
+  const totalPriceIncludingVAT = subtotal + vat;
+
   if (!cart || cart === undefined) {
     <div>Cart is empty</div>;
   }
@@ -81,9 +91,14 @@ const Cart = () => {
             {cart?.map((item) => (
               <div
                 key={item._id}
-                className=" mb-6 flex gap-6 items-center border-2 rounded-md p-2"
+                className=" mb-6 flex gap-6 items-center border-2 rounded-md p-2 relative"
               >
-                <button onClick={() => handleDelete(item)}>delete</button>
+                <button
+                  className="absolute text-2xl -top-0 right-0 text-red-600"
+                  onClick={() => handleDelete(item)}
+                >
+                  <MdDeleteForever />
+                </button>
                 {/* image div  */}
                 <div>
                   <img
@@ -134,7 +149,22 @@ const Cart = () => {
           </div>
 
           {/* order summary  */}
-          <div className="basis-1/4">order summary</div>
+
+          {cart.length > 0 && (
+            <div className="basis-1/4 border-2 p-2 rounded-md">
+              <p className="text-xl font-bold mb-3">
+                Subtotal: <span className="text-primary">${subtotal}</span>
+              </p>
+              <p className="text-base font-bold mb-6">
+                15% Vat: <span className="text-primary">${vat}</span>
+              </p>
+
+              <p className="text-primary  text-xl font-bold">
+                Total:{" "}
+                <span className="text-primary">${totalPriceIncludingVAT}</span>
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </Container>
