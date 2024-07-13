@@ -1,9 +1,15 @@
 import Title from "@/components/custom/Title";
 import Container from "@/components/shared/Container";
-import { addToCart, ICartProduct } from "@/redux/features/cartSlice";
+import {
+  addToCart,
+  decrementFromCart,
+  deleteFromCart,
+  ICartProduct,
+} from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { Star } from "lucide-react";
+import { useEffect } from "react";
 import Rating from "react-rating";
 
 const products = [
@@ -57,7 +63,13 @@ const Cart = () => {
       dispatch(addToCart(item));
     }
   };
+  const handleDecrement = (item: ICartProduct) => {
+    dispatch(decrementFromCart(item));
+  };
 
+  const handleDelete = (item: ICartProduct) => {
+    dispatch(deleteFromCart(item._id));
+  };
   return (
     <Container>
       <div className="my-28">
@@ -71,6 +83,7 @@ const Cart = () => {
                 key={item._id}
                 className=" mb-6 flex gap-6 items-center border-2 rounded-md p-2"
               >
+                <button onClick={() => handleDelete(item)}>delete</button>
                 {/* image div  */}
                 <div>
                   <img
@@ -101,7 +114,7 @@ const Cart = () => {
                   {/* action div  */}
                   <div className="flex justify-center gap-3">
                     <div className="flex gap-3 justify-center cursor-pointer">
-                      <span>-</span>
+                      <span onClick={() => handleDecrement(item)}>-</span>
                       <p className="font-bold">{item?.quantity}</p>
                       <span
                         onClick={() => handleIncrement(item)}
