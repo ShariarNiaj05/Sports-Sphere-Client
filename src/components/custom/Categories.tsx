@@ -26,17 +26,17 @@ const Categories = () => {
         <Title>Categories</Title>
 
         {/* category section  */}
-        <div className="mt-16 grid grid-cols-3 gap-6 mx-auto text-center justify-items-center items-center">
+        <div className="mt-16 grid grid-cols-3 gap-6 mx-auto text-center justify-items-center items-center ">
           <div onClick={() => handleCategoryClick("Baseball")}>
-            <IoMdBaseball className=" text-8xl text-primary" />
+            <IoMdBaseball className=" text-8xl text-primary cursor-pointer" />
             <span className="text-xl text-secondary">Baseball</span>
           </div>
           <div onClick={() => handleCategoryClick("Soccer")}>
-            <PiSoccerBallFill className=" text-8xl text-primary" />
+            <PiSoccerBallFill className=" text-8xl text-primary cursor-pointer" />
             <span className="text-xl text-secondary">Soccer</span>
           </div>
           <div onClick={() => handleCategoryClick("Rugby")}>
-            <MdOutlineSportsRugby className=" text-8xl text-primary" />
+            <MdOutlineSportsRugby className=" text-8xl text-primary cursor-pointer" />
             <span className="text-xl text-secondary">Rugby</span>
           </div>
         </div>

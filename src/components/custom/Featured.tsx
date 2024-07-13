@@ -10,7 +10,6 @@ import Loading from "../shared/Loading";
 const Featured = () => {
   const { data, isFetching, isLoading } = useProductQuery({});
   const products = data?.data;
-
   if (isFetching || isLoading) {
     <Loading />;
   }
