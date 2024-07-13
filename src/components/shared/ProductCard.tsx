@@ -72,5 +72,6 @@ const ProductCard = ({ product }: { product: IProduct }) => {
     </Card>
   );
 };
-
+// http://localhost:5173/product/66903551edc8b9ee6fa9e0b2
+// http://localhost:5173/products/product/668d8a28308fab9930241a6c
 export default ProductCard;
