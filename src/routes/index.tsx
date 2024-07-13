@@ -5,6 +5,7 @@ import Cart from "@/pages/Cart";
 import Checkout from "@/pages/Checkout";
 import Home from "@/pages/Home";
 import Manage from "@/pages/Manage";
+import PaymentSuccess from "@/pages/PaymentSuccess";
 import SingleProduct from "@/pages/SingleProduct";
 import SportsCategory from "@/pages/SportsCategory";
 import { createBrowserRouter } from "react-router-dom";
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout />,
+      },
+      {
+        path: "/checkout/success",
+        element: <PaymentSuccess />,
       },
     ],
   },

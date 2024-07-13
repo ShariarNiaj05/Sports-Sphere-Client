@@ -14,7 +14,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const products = [
+/* const products = [
   {
     brand: "Nike",
     createdAt: "2024-07-11T19:41:05.928Z",
@@ -51,7 +51,7 @@ const products = [
     __v: 0,
     _id: "66903546edc8b9ee6fa9e0aa",
   },
-];
+]; */
 
 const Cart = () => {
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
