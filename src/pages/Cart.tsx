@@ -11,6 +11,8 @@ import { RootState } from "@/redux/store";
 import { Star } from "lucide-react";
 import Rating from "react-rating";
 import { MdDeleteForever } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const products = [
   {
@@ -151,18 +153,28 @@ const Cart = () => {
           {/* order summary  */}
 
           {cart.length > 0 && (
-            <div className="basis-1/4 border-2 p-2 rounded-md">
-              <p className="text-xl font-bold mb-3">
-                Subtotal: <span className="text-primary">${subtotal}</span>
-              </p>
-              <p className="text-base font-bold mb-6">
-                15% Vat: <span className="text-primary">${vat}</span>
-              </p>
+            <div className="basis-1/4 border-2 p-2 rounded-md flex flex-col justify-between">
+              <div>
+                <p className="text-xl font-bold mb-3">
+                  Subtotal: <span className="text-primary">${subtotal}</span>
+                </p>
+                <p className="text-base font-bold mb-6">
+                  15% Vat: <span className="text-primary">${vat}</span>
+                </p>
 
-              <p className="text-primary  text-xl font-bold">
-                Total:{" "}
-                <span className="text-primary">${totalPriceIncludingVAT}</span>
-              </p>
+                <p className="text-primary  text-xl font-bold">
+                  Total:{" "}
+                  <span className="text-primary">
+                    ${totalPriceIncludingVAT}
+                  </span>
+                </p>
+              </div>
+
+              <div className="flex justify-center items-center">
+                <Link to={"/checkout"}>
+                  <Button>Checkout</Button>
+                </Link>
+              </div>
             </div>
           )}
         </div>
