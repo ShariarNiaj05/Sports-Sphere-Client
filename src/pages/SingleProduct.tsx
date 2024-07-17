@@ -108,7 +108,9 @@ const SingleProduct = () => {
                 Stock Limit Exceeded
               </Button>
             ) : (
-              <Button onClick={handleCart}>Add To Cart</Button>
+              <Button onClick={handleCart}>
+                {product?.stockQuantity > 0 ? "Add To Cart" : "Stock Out"}
+              </Button>
             )}
           </CardFooter>
         </div>
