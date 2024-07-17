@@ -2,8 +2,14 @@ import Title from "@/components/custom/Title";
 import Container from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ICartProduct } from "@/redux/features/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { RootState } from "@/redux/store";
 
 const Checkout = () => {
+  const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
+  const dispatch = useAppDispatch();
+  console.log(cart);
   return (
     <Container>
       <div className="my-28">
