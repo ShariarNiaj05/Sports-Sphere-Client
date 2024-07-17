@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
 const baseUrl = "http://localhost:5000/api/v1";
-// const baseUrl = "https://sports-sphere-server-swart.vercel.app//api/v1";
+// const baseUrl = "https://sports-sphere-server-swart.vercel.app/api/v1";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
@@ -20,16 +20,15 @@ export const baseApi = createApi({
         method: "GET",
       }),
     }),
-    // addToCart: builder.mutation({
-    //   query: (productInfo) => ({
-    //     url: "/add-to-cart",
-    //     method: "PUT",
-    //     body: productInfo,
-    //   }),
-    // }),
+    checkout: builder.mutation({
+      query: (body) => ({
+        url: `/checkout`,
+        method: "PUT",
+        body,
+      }),
+    }),
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useProductQuery, useSingleProductQuery } = baseApi;
+export const { useProductQuery, useSingleProductQuery, useCheckoutMutation } =
+  baseApi;
