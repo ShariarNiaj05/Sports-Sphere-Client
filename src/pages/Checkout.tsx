@@ -30,19 +30,9 @@ const Checkout = () => {
         },
         productInfo: cart,
       };
-      console.log(payload);
-      await checkout(payload);
-      /* const result = await checkout({
-        userInfo: {
-          fullName,
-          email,
-          phoneNumber,
-          address,
-        },
-        productInfo: cart,
-      }).unwrap(); */
 
-      // console.log("Checkout successful:", result);
+      const result = await checkout(payload);
+      console.log(result);
     } catch (err) {
       console.error("Checkout failed:", err);
     }
