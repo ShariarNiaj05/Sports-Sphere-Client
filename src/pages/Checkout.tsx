@@ -33,6 +33,10 @@ const Checkout = () => {
 
       const result = await checkout(payload);
       console.log(result);
+      if (result.data.success) {
+        // alert here
+        console.log("Checkout successful");
+      }
     } catch (err) {
       console.error("Checkout failed:", err);
     }
