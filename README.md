@@ -42,29 +42,38 @@ The primary purpose of Sports Sphere is to create a comprehensive and user-frien
 
 ## Installation Guideline
 
-Instructions on how to install, configure, and get the project running locally.
+Follow The Instructions To Run The Application Locally
 
-### Prerequisites
+### Step:1 **Clone the repository**
 
-- List any software or dependencies that need to be installed beforehand (if any).
+```bash
+  git clone https://github.com/ShariarNiaj05/Sports-Sphere-Client.git
+```
 
-### Installation Steps
+### Step:2 **Change the directory**
 
-1. Step-by-step instructions on how to install the project.
-2. Provide code examples or commands for clarity.
+```bash
+  cd Sports-Sphere-Client
+```
 
-### Configuration
+Or simply navigate to the folder and open VS Code in that directory.
 
-1. Create a `.env` file in the root directory of the project.
-2. Add necessary configuration variables in the `.env` file.
-   Example:
-   ```bash
-    PORT=3000
-    DB_URL=your_db_connection_uri
-    API_KEY=your_api_key_here
-   ```
-3. Explain any specific configuration requirements or variables used in your project.
+### Step:3 **Install node modules and all the dependencies**
 
-## Usage
+```bash
+  npm i / npm install
+```
 
-Instructions or examples for using the project. Include screenshots or code snippets if applicable.
+### Step:4 **.env file setup**
+
+```bash
+   WIll update later
+```
+
+### Step:5 **Run the project**
+
+```bash
+   npm run dev
+```
+
+The server will start running on http://localhost:5173 or http://localhost:5174
