@@ -61,7 +61,7 @@ Or simply navigate to the folder and open VS Code in that directory.
 ### Step:3 **Install node modules and all the dependencies**
 
 ```bash
-  npm i / npm install
+  npm install
 ```
 
 ### Step:4 **.env file setup**
