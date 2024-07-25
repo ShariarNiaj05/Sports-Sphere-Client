@@ -19,7 +19,7 @@ const Manage = () => {
   return (
     <Container>
       <div className="mt-20">
-        <Title>Manage Product</Title>
+        <Title>Manage Products</Title>
         <div className="mt-20 flex flex-col gap-10  px-5">
           <Tabs defaultValue="productList" className="w-full">
             <TabsList className="grid w-full grid-cols-2 w-[400px] mx-auto mb-10">
