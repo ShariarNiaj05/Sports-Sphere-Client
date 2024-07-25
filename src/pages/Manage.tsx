@@ -1,3 +1,4 @@
+import ProductListTable from "@/components/custom/ProductListTable";
 import Title from "@/components/custom/Title";
 import Container from "@/components/shared/Container";
 
@@ -20,36 +21,15 @@ const Manage = () => {
       <div className="mt-20">
         <Title>Manage Product</Title>
         <div className="mt-20 flex flex-col gap-10  px-5">
-          <Tabs defaultValue="productList" className="w-[400px]">
-            <TabsList className="grid w-full grid-cols-2">
+          <Tabs defaultValue="productList" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 w-[400px] mx-auto mb-10">
               <TabsTrigger value="productList">Product List</TabsTrigger>
               <TabsTrigger value="addProduct">Add Product</TabsTrigger>
             </TabsList>
 
             {/* Product List tab  */}
             <TabsContent value="productList">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Account</CardTitle>
-                  <CardDescription>
-                    Make changes to your account here. Click save when you're
-                    done.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <div className="space-y-1">
-                    {/* <Label htmlFor="name">Name</Label> */}
-                    <Input id="name" defaultValue="Pedro Duarte" />
-                  </div>
-                  <div className="space-y-1">
-                    {/* <Label htmlFor="username">Username</Label> */}
-                    <Input id="username" defaultValue="@peduarte" />
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button>Save changes</Button>
-                </CardFooter>
-              </Card>
+              <ProductListTable />
             </TabsContent>
 
             {/* Add Product Tab */}
