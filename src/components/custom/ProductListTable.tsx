@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useProductQuery } from "@/redux/api/baseApi";
+import { useDeleteProductMutation, useProductQuery } from "@/redux/api/baseApi";
 import Loading from "../shared/Loading";
 import { IProduct } from "@/types/products";
 import { Button } from "../ui/button";
@@ -17,10 +17,18 @@ import { MdDeleteForever } from "react-icons/md";
 
 const ProductListTable = () => {
   const { data, isFetching, isLoading } = useProductQuery({});
+
+  const [deleteProduct] = useDeleteProductMutation();
   if (isFetching || isLoading) {
     return <Loading />;
   }
   const allProduct = data?.data;
+
+  const handleDelete = async (id: string) => {
+    // console.log(id);
+    const result = await deleteProduct(id);
+    console.log(result);
+  };
   return (
     <div>
       <Table>
@@ -48,7 +56,10 @@ const ProductListTable = () => {
                   <Button>
                     <CiEdit className="text-xl" />
                   </Button>
-                  <Button variant={"outline"}>
+                  <Button
+                    onClick={() => handleDelete(product._id)}
+                    variant={"outline"}
+                  >
                     <MdDeleteForever className="text-xl" />
                   </Button>
                 </div>
