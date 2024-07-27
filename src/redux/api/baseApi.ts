@@ -7,12 +7,14 @@ const baseUrl = "http://localhost:5000/api/v1";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+  tagTypes: ["Product"],
   endpoints: (builder) => ({
     product: builder.query({
       query: () => ({
         url: "/product",
         method: "GET",
       }),
+      providesTags: ["Product"],
     }),
     singleProduct: builder.query({
       query: (id) => ({
@@ -29,9 +31,10 @@ export const baseApi = createApi({
     }),
     deleteProduct: builder.mutation({
       query: (id) => ({
-        url: `/delete-product/${id}`,
+        url: `/product/delete-product/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Product"],
     }),
   }),
 });

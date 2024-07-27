@@ -27,7 +27,11 @@ const ProductListTable = () => {
   const handleDelete = async (id: string) => {
     // console.log(id);
     const result = await deleteProduct(id);
-    console.log(result);
+    if (result.error) {
+      console.error("Failed to delete product:", result.error);
+    } else {
+      console.log("Product deleted successfully:", result.data);
+    }
   };
   return (
     <div>
