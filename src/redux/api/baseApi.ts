@@ -16,6 +16,13 @@ export const baseApi = createApi({
       }),
       providesTags: ["Product"],
     }),
+    addProduct: builder.mutation({
+      query: (body) => ({
+        url: `/product/add-product`,
+        method: "POST",
+        body,
+      }),
+    }),
     singleProduct: builder.query({
       query: (id) => ({
         url: `/product/${id}`,
@@ -41,6 +48,7 @@ export const baseApi = createApi({
 
 export const {
   useProductQuery,
+  useAddProductMutation,
   useSingleProductQuery,
   useCheckoutMutation,
   useDeleteProductMutation,
