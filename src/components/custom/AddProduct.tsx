@@ -6,7 +6,13 @@ import { Label } from "../ui/label";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState<string>("");
+  const [sportsCategory, setSportsCategory] = useState<string>("");
   const [stockQuantity, setStockQuantity] = useState<number>(0);
+  const [brand, setBrand] = useState<string>("");
+  const [rating, setRating] = useState<number>(5);
+  const [productDescription, setProductDescription] = useState<string>("");
+  const [price, setPrice] = useState<number>(0);
+  const [image, setImage] = useState<string>("");
 
   const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
