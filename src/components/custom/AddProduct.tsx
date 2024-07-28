@@ -11,24 +11,23 @@ const AddProduct = () => {
   const [brand, setBrand] = useState<string>("");
   const [rating, setRating] = useState<number>(5);
   const [productDescription, setProductDescription] = useState<string>("");
-  const [price, setPrice] = useState<number>(0);
+  const [price, setPrice] = useState<number>(100);
   const [image, setImage] = useState<string>("");
 
   const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Product Name:", productName);
-    console.log("stock Quantity:", stockQuantity);
 
-    /* 
-    
-    -----------productName: string
-      sportsCategory: string
-      ---------stockQuantity: number
-      brand: string
-      rating: number
-      productDescription: string
-      price: number
-      image: string */
+    const payload = {
+      productName,
+      sportsCategory,
+      stockQuantity,
+      brand,
+      rating,
+      productDescription,
+      price,
+      image,
+    };
+    console.log("payload:", payload);
   };
 
   return (
@@ -47,12 +46,12 @@ const AddProduct = () => {
               />
             </div>
             <div className="w-1/2">
-              <Label htmlFor="new">Stock Quantity</Label>
+              <Label htmlFor="new">Sports Category</Label>
               <Input
-                id="stockQuantity"
-                type="number"
-                value={stockQuantity}
-                onChange={(e) => setStockQuantity(parseFloat(e.target.value))}
+                id="sportsCategory"
+                type="text"
+                value={sportsCategory}
+                onChange={(e) => setSportsCategory(e.target.value)}
               />
             </div>
           </div>
@@ -60,21 +59,21 @@ const AddProduct = () => {
           {/* stock quantity and brand  */}
           <div className="flex gap-2 w-full mt-2">
             <div className="w-1/2">
-              <Label htmlFor="current">Product Name</Label>
-              <Input
-                id="productName"
-                type="text"
-                value={productName}
-                onChange={(e) => setProductName(e.target.value)}
-              />
-            </div>
-            <div className="w-1/2">
               <Label htmlFor="new">Stock Quantity</Label>
               <Input
                 id="stockQuantity"
                 type="number"
                 value={stockQuantity}
                 onChange={(e) => setStockQuantity(parseFloat(e.target.value))}
+              />
+            </div>
+            <div className="w-1/2">
+              <Label htmlFor="current">brand</Label>
+              <Input
+                id="brand"
+                type="text"
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
               />
             </div>
           </div>
@@ -82,21 +81,21 @@ const AddProduct = () => {
           {/* rating and product description  */}
           <div className="flex gap-2 w-full mt-2">
             <div className="w-1/2">
-              <Label htmlFor="current">Product Name</Label>
+              <Label htmlFor="new">Rating</Label>
               <Input
-                id="productName"
-                type="text"
-                value={productName}
-                onChange={(e) => setProductName(e.target.value)}
+                id="rating"
+                type="number"
+                value={rating}
+                onChange={(e) => setRating(parseFloat(e.target.value))}
               />
             </div>
             <div className="w-1/2">
-              <Label htmlFor="new">Stock Quantity</Label>
+              <Label htmlFor="current">Product Description</Label>
               <Input
-                id="stockQuantity"
-                type="number"
-                value={stockQuantity}
-                onChange={(e) => setStockQuantity(parseFloat(e.target.value))}
+                id="productDescription"
+                type="text"
+                value={productDescription}
+                onChange={(e) => setProductDescription(e.target.value)}
               />
             </div>
           </div>
@@ -104,21 +103,21 @@ const AddProduct = () => {
           {/* price and image url  */}
           <div className="flex gap-2 w-full mt-2">
             <div className="w-1/2">
-              <Label htmlFor="current">Product Name</Label>
+              <Label htmlFor="new">Price ($)</Label>
               <Input
-                id="productName"
-                type="text"
-                value={productName}
-                onChange={(e) => setProductName(e.target.value)}
+                id="price"
+                type="number"
+                value={price}
+                onChange={(e) => setPrice(parseFloat(e.target.value))}
               />
             </div>
             <div className="w-1/2">
-              <Label htmlFor="new">Stock Quantity</Label>
+              <Label htmlFor="current">Image URL</Label>
               <Input
-                id="stockQuantity"
-                type="number"
-                value={stockQuantity}
-                onChange={(e) => setStockQuantity(parseFloat(e.target.value))}
+                id="image"
+                type="text"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
               />
             </div>
           </div>
