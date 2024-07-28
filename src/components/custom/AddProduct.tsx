@@ -17,7 +17,7 @@ const AddProduct = () => {
     
     -----------productName: string
       sportsCategory: string
-      stockQuantity: number
+      ---------stockQuantity: number
       brand: string
       rating: number
       productDescription: string
@@ -29,23 +29,92 @@ const AddProduct = () => {
     <form onSubmit={handleForm}>
       <Card>
         <CardContent className="space-y-2">
-          <div className="space-y-1">
-            <Label htmlFor="current">Product Name</Label>
-            <Input
-              id="productName"
-              type="text"
-              value={productName}
-              onChange={(e) => setProductName(e.target.value)}
-            />
+          {/* product name and sports category  */}
+          <div className="flex gap-2 w-full mt-2">
+            <div className="w-1/2">
+              <Label htmlFor="current">Product Name</Label>
+              <Input
+                id="productName"
+                type="text"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+              />
+            </div>
+            <div className="w-1/2">
+              <Label htmlFor="new">Stock Quantity</Label>
+              <Input
+                id="stockQuantity"
+                type="number"
+                value={stockQuantity}
+                onChange={(e) => setStockQuantity(parseFloat(e.target.value))}
+              />
+            </div>
           </div>
-          <div className="space-y-1">
-            <Label htmlFor="new">New password</Label>
-            <Input
-              id="new"
-              type="number"
-              value={stockQuantity}
-              onChange={(e) => setStockQuantity(parseFloat(e.target.value))}
-            />
+
+          {/* stock quantity and brand  */}
+          <div className="flex gap-2 w-full mt-2">
+            <div className="w-1/2">
+              <Label htmlFor="current">Product Name</Label>
+              <Input
+                id="productName"
+                type="text"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+              />
+            </div>
+            <div className="w-1/2">
+              <Label htmlFor="new">Stock Quantity</Label>
+              <Input
+                id="stockQuantity"
+                type="number"
+                value={stockQuantity}
+                onChange={(e) => setStockQuantity(parseFloat(e.target.value))}
+              />
+            </div>
+          </div>
+
+          {/* rating and product description  */}
+          <div className="flex gap-2 w-full mt-2">
+            <div className="w-1/2">
+              <Label htmlFor="current">Product Name</Label>
+              <Input
+                id="productName"
+                type="text"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+              />
+            </div>
+            <div className="w-1/2">
+              <Label htmlFor="new">Stock Quantity</Label>
+              <Input
+                id="stockQuantity"
+                type="number"
+                value={stockQuantity}
+                onChange={(e) => setStockQuantity(parseFloat(e.target.value))}
+              />
+            </div>
+          </div>
+
+          {/* price and image url  */}
+          <div className="flex gap-2 w-full mt-2">
+            <div className="w-1/2">
+              <Label htmlFor="current">Product Name</Label>
+              <Input
+                id="productName"
+                type="text"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+              />
+            </div>
+            <div className="w-1/2">
+              <Label htmlFor="new">Stock Quantity</Label>
+              <Input
+                id="stockQuantity"
+                type="number"
+                value={stockQuantity}
+                onChange={(e) => setStockQuantity(parseFloat(e.target.value))}
+              />
+            </div>
           </div>
         </CardContent>
         <CardFooter>
