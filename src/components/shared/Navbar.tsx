@@ -45,7 +45,8 @@ const Navbar = () => {
 
       {/* Cart icon  */}
 
-      <div>
+      <div className="relative">
+        <p className="absolute -right-2 -top-3">{cart?.length}</p>
         <Link to={"/cart"}>
           <FaCartPlus className="text-xl" />
         </Link>
