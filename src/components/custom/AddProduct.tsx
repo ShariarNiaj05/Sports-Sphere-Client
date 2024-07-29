@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
+import { useAddProductMutation } from "@/redux/api/baseApi";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState<string>("");
@@ -14,7 +15,9 @@ const AddProduct = () => {
   const [price, setPrice] = useState<number>(100);
   const [image, setImage] = useState<string>("");
 
-  const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const [addProduct] = useAddProductMutation();
+
+  const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const payload = {
@@ -28,6 +31,8 @@ const AddProduct = () => {
       image,
     };
     console.log("payload:", payload);
+    const result = await addProduct(payload);
+    console.log(result);
   };
 
   return (
