@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { useAddProductMutation } from "@/redux/api/baseApi";
+import { toast } from "sonner";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState<string>("");
@@ -33,6 +34,10 @@ const AddProduct = () => {
     console.log("payload:", payload);
     const result = await addProduct(payload);
     console.log(result);
+    if (result?.error) {
+      toast.error("Failed to add product");
+    }
+    toast.success("Product added successfully");
   };
 
   return (
