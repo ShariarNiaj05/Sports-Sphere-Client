@@ -13,45 +13,7 @@ import Rating from "react-rating";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
-/* const products = [
-  {
-    brand: "Nike",
-    createdAt: "2024-07-11T19:41:05.928Z",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy4QKUYGUhecolP3NzPK0HvwPhwti1QEm4WQ&s",
-    price: 120,
-    productDescription:
-      "Lightweight and responsive, the Nike Air Zoom Pegasus 38 keeps you moving freely on your runs.",
-    productName: "Air Zoom Pegasus 38",
-    quantity: 1,
-    rating: 1.5,
-    sportsCategory: "Running",
-    stockQuantity: 1,
-    totalPrice: 120,
-    updatedAt: "2024-07-11T19:41:05.928Z",
-    __v: 0,
-    _id: "66903551edc8b9ee6fa9e0b2",
-  },
-  {
-    brand: "Spalding",
-    createdAt: "2024-07-11T19:40:54.335Z",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6tItyqmhOfuwfTgRz7C7V8DOFMp7nXkUmvQ&s",
-    price: 170,
-    productDescription:
-      "The Spalding NBA Official Game Ball is crafted from full grain leather for the ultimate feel and performance.",
-    productName: "NBA Official Game Ball",
-    quantity: 1,
-    rating: 4.7,
-    sportsCategory: "Basketball",
-    stockQuantity: 1,
-    totalPrice: 170,
-    updatedAt: "2024-07-11T19:40:54.335Z",
-    __v: 0,
-    _id: "66903546edc8b9ee6fa9e0aa",
-  },
-]; */
+import { toast } from "sonner";
 
 const Cart = () => {
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
@@ -81,6 +43,7 @@ const Cart = () => {
 
   const handleDelete = (item: ICartProduct) => {
     dispatch(deleteFromCart(item._id));
+    toast.success("Deleted from cart");
   };
   return (
     <Container>

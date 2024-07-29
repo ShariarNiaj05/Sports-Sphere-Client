@@ -19,6 +19,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { addToCart, ICartProduct } from "@/redux/features/cartSlice";
 import { RootState } from "@/redux/store";
 import Loading from "@/components/shared/Loading";
+import { toast } from "sonner";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -39,6 +40,7 @@ const SingleProduct = () => {
   const handleCart = () => {
     if (product) {
       dispatch(addToCart(product));
+      toast.success("Product added to cart");
     }
   };
   return (
