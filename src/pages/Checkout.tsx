@@ -7,6 +7,7 @@ import { ICartProduct } from "@/redux/features/cartSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const Checkout = () => {
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
@@ -34,11 +35,10 @@ const Checkout = () => {
       const result = await checkout(payload);
       console.log(result);
       if (result.data.success) {
-        // Sonner alert here
-        console.log("Checkout successful");
+        toast.success("Checkout successful");
       }
     } catch (err) {
-      // error alert here
+      toast.error("Checkout failed");
       console.error("Checkout failed:", err);
     }
   };
