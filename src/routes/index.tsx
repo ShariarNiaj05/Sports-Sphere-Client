@@ -1,3 +1,4 @@
+import UpdateProduct from "@/components/custom/UpdateProduct";
 import MainLayout from "@/layout/MainLayout";
 import About from "@/pages/About";
 import AllProduct from "@/pages/AllProduct";
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "products/product/:id",
         element: <SingleProduct />,
+      },
+      {
+        path: "update/:id",
+        element: <UpdateProduct />,
       },
       {
         path: "/category/:sportsCategory",
