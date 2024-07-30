@@ -14,6 +14,7 @@ import { IProduct } from "@/types/products";
 import { Button } from "../ui/button";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteForever } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const ProductListTable = () => {
   const { data, isFetching, isLoading } = useProductQuery({});
@@ -57,9 +58,11 @@ const ProductListTable = () => {
               <TableCell className="text-right">{product.price}</TableCell>
               <TableCell className="text-right">
                 <div className="flex justify-end gap-2">
-                  <Button>
-                    <CiEdit className="text-xl" />
-                  </Button>
+                  <Link to={`/update/${product._id}`}>
+                    <Button>
+                      <CiEdit className="text-xl" />
+                    </Button>
+                  </Link>
                   <Button
                     onClick={() => handleDelete(product._id)}
                     variant={"outline"}
@@ -71,12 +74,6 @@ const ProductListTable = () => {
             </TableRow>
           ))}
         </TableBody>
-        {/*  <TableFooter>
-          <TableRow>
-            <TableCell colSpan={3}>Total</TableCell>
-            <TableCell className="text-right">$2,500.00</TableCell>
-          </TableRow>
-        </TableFooter> */}
       </Table>
     </div>
   );
