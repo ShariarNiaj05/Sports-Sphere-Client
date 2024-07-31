@@ -7,7 +7,10 @@ import { toast } from "sonner";
 import Container from "../shared/Container";
 import Title from "./Title";
 import { useParams } from "react-router-dom";
-import { useSingleProductQuery } from "@/redux/api/baseApi";
+import {
+  useSingleProductQuery,
+  useUpdateProductMutation,
+} from "@/redux/api/baseApi";
 import Loading from "../shared/Loading";
 
 const UpdateProduct = () => {
@@ -27,6 +30,8 @@ const UpdateProduct = () => {
     isFetching,
     isLoading,
   } = useSingleProductQuery(id);
+
+  const [updateProduct] = useUpdateProductMutation();
 
   useEffect(() => {
     if (singleProductData?.data) {
@@ -69,16 +74,20 @@ const UpdateProduct = () => {
       price,
       image,
     };
-    console.log("payload:", payload);
+    const parameter = {
+      id,
+      payload,
+    };
 
+    console.log(payload);
     //   update logic
-    // const result = await addProduct(payload);
-    const result = {};
+    const result = await updateProduct(parameter);
     console.log(result);
     if (result?.error) {
       toast.error("Failed to add product");
+    } else {
+      toast.success(result?.data?.message);
     }
-    toast.success("Product added successfully");
   };
 
   return (
