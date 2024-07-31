@@ -6,8 +6,13 @@ import { Label } from "../ui/label";
 import { toast } from "sonner";
 import Container from "../shared/Container";
 import Title from "./Title";
+import { useParams } from "react-router-dom";
+import { useSingleProductQuery } from "@/redux/api/baseApi";
+import Loading from "../shared/Loading";
 
 const UpdateProduct = () => {
+  const { id } = useParams();
+
   const [productName, setProductName] = useState<string>("");
   const [sportsCategory, setSportsCategory] = useState<string>("");
   const [stockQuantity, setStockQuantity] = useState<number>(0);
@@ -16,6 +21,26 @@ const UpdateProduct = () => {
   const [productDescription, setProductDescription] = useState<string>("");
   const [price, setPrice] = useState<number>(100);
   const [image, setImage] = useState<string>("");
+
+  const {
+    data: singleProductData,
+    isFetching,
+    isLoading,
+  } = useSingleProductQuery(id);
+
+  if (isFetching || isLoading) {
+    return <Loading />;
+  }
+  const {
+    productName: defaultProductName,
+    sportsCategory: defaultSportsCategory,
+    stockQuantity: defaultStockQuantity,
+    brand: defaultBrand,
+    rating: defaultRating,
+    productDescription: defaultProductDescription,
+    price: defaultPrice,
+    image: defaultImage,
+  } = singleProductData?.data;
 
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,6 +67,7 @@ const UpdateProduct = () => {
     toast.success("Product added successfully");
   };
 
+  console.log(defaultProductName);
   return (
     <Container>
       <div className="my-28">
@@ -52,20 +78,22 @@ const UpdateProduct = () => {
               {/* product name and sports category  */}
               <div className="flex gap-2 w-full mt-2">
                 <div className="w-1/2">
-                  <Label htmlFor="current">Product Name</Label>
+                  <Label htmlFor="productName">Product Name</Label>
                   <Input
                     id="productName"
                     type="text"
-                    value={productName}
+                    defaultValue={defaultProductName}
+                    // value={productName}
                     onChange={(e) => setProductName(e.target.value)}
                   />
                 </div>
                 <div className="w-1/2">
-                  <Label htmlFor="new">Sports Category</Label>
+                  <Label htmlFor="sportsCategory">Sports Category</Label>
                   <Input
                     id="sportsCategory"
                     type="text"
-                    value={sportsCategory}
+                    // value={sportsCategory}
+                    defaultValue={defaultSportsCategory}
                     onChange={(e) => setSportsCategory(e.target.value)}
                   />
                 </div>
@@ -74,22 +102,24 @@ const UpdateProduct = () => {
               {/* stock quantity and brand  */}
               <div className="flex gap-2 w-full mt-2">
                 <div className="w-1/2">
-                  <Label htmlFor="new">Stock Quantity</Label>
+                  <Label htmlFor="stockQuantity">Stock Quantity</Label>
                   <Input
                     id="stockQuantity"
                     type="number"
-                    value={stockQuantity}
+                    // value={stockQuantity}
+                    defaultValue={defaultStockQuantity}
                     onChange={(e) =>
                       setStockQuantity(parseFloat(e.target.value))
                     }
                   />
                 </div>
                 <div className="w-1/2">
-                  <Label htmlFor="current">brand</Label>
+                  <Label htmlFor="brand">brand</Label>
                   <Input
                     id="brand"
                     type="text"
-                    value={brand}
+                    // value={brand}
+                    defaultValue={defaultBrand}
                     onChange={(e) => setBrand(e.target.value)}
                   />
                 </div>
@@ -98,20 +128,24 @@ const UpdateProduct = () => {
               {/* rating and product description  */}
               <div className="flex gap-2 w-full mt-2">
                 <div className="w-1/2">
-                  <Label htmlFor="new">Rating</Label>
+                  <Label htmlFor="rating">Rating</Label>
                   <Input
                     id="rating"
                     type="number"
-                    value={rating}
+                    // value={rating}
+                    defaultValue={defaultRating}
                     onChange={(e) => setRating(parseFloat(e.target.value))}
                   />
                 </div>
                 <div className="w-1/2">
-                  <Label htmlFor="current">Product Description</Label>
+                  <Label htmlFor="productDescription">
+                    Product Description
+                  </Label>
                   <Input
                     id="productDescription"
                     type="text"
-                    value={productDescription}
+                    // value={productDescription}
+                    defaultValue={defaultProductDescription}
                     onChange={(e) => setProductDescription(e.target.value)}
                   />
                 </div>
@@ -120,20 +154,22 @@ const UpdateProduct = () => {
               {/* price and image url  */}
               <div className="flex gap-2 w-full mt-2">
                 <div className="w-1/2">
-                  <Label htmlFor="new">Price ($)</Label>
+                  <Label htmlFor="price">Price ($)</Label>
                   <Input
                     id="price"
                     type="number"
-                    value={price}
+                    // value={price}
+                    defaultValue={defaultPrice}
                     onChange={(e) => setPrice(parseFloat(e.target.value))}
                   />
                 </div>
                 <div className="w-1/2">
-                  <Label htmlFor="current">Image URL</Label>
+                  <Label htmlFor="image">Image URL</Label>
                   <Input
                     id="image"
                     type="text"
-                    value={image}
+                    // value={image}
+                    defaultValue={defaultImage}
                     onChange={(e) => setImage(e.target.value)}
                   />
                 </div>

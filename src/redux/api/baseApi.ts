@@ -29,6 +29,13 @@ export const baseApi = createApi({
         method: "GET",
       }),
     }),
+    /*  updateProduct: builder.mutation({
+      query: (id, body) => ({
+        url: `/update-product/${id}`,
+        method: "PUT",
+        body,
+      }),
+    }), */
     checkout: builder.mutation({
       query: (body) => ({
         url: `/checkout`,
