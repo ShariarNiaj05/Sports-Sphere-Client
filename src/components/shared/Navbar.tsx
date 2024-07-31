@@ -7,8 +7,6 @@ import { ICartProduct } from "@/redux/features/cartSlice";
 
 const Navbar = () => {
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
-  console.log(cart.length);
-
   return (
     <div className=" max-w-7xl mx-auto flex justify-between py-5 font-bold">
       {/* logo div  */}
@@ -32,13 +30,6 @@ const Navbar = () => {
                 <MenubarTrigger>About</MenubarTrigger>
               </Link>
             </div>
-            {/* <MenubarContent>
-              <MenubarItem>New Window</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Share</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Print</MenubarItem>
-            </MenubarContent> */}
           </MenubarMenu>
         </Menubar>
       </div>
