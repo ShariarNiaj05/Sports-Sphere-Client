@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter } from "../ui/card";
 import { Input } from "../ui/input";
@@ -17,7 +17,7 @@ const UpdateProduct = () => {
   const [sportsCategory, setSportsCategory] = useState<string>("");
   const [stockQuantity, setStockQuantity] = useState<number>(0);
   const [brand, setBrand] = useState<string>("");
-  const [rating, setRating] = useState<number>(5);
+  const [rating, setRating] = useState<number>(5.0);
   const [productDescription, setProductDescription] = useState<string>("");
   const [price, setPrice] = useState<number>(100);
   const [image, setImage] = useState<string>("");
@@ -28,19 +28,33 @@ const UpdateProduct = () => {
     isLoading,
   } = useSingleProductQuery(id);
 
+  useEffect(() => {
+    if (singleProductData?.data) {
+      const {
+        productName: defaultProductName,
+        sportsCategory: defaultSportsCategory,
+        stockQuantity: defaultStockQuantity,
+        brand: defaultBrand,
+        rating: defaultRating,
+        productDescription: defaultProductDescription,
+        price: defaultPrice,
+        image: defaultImage,
+      } = singleProductData.data;
+
+      setProductName(defaultProductName);
+      setSportsCategory(defaultSportsCategory);
+      setStockQuantity(defaultStockQuantity);
+      setBrand(defaultBrand);
+      setRating(defaultRating);
+      setProductDescription(defaultProductDescription);
+      setPrice(defaultPrice);
+      setImage(defaultImage);
+    }
+  }, [singleProductData]);
+
   if (isFetching || isLoading) {
     return <Loading />;
   }
-  const {
-    productName: defaultProductName,
-    sportsCategory: defaultSportsCategory,
-    stockQuantity: defaultStockQuantity,
-    brand: defaultBrand,
-    rating: defaultRating,
-    productDescription: defaultProductDescription,
-    price: defaultPrice,
-    image: defaultImage,
-  } = singleProductData?.data;
 
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -67,7 +81,6 @@ const UpdateProduct = () => {
     toast.success("Product added successfully");
   };
 
-  console.log(defaultProductName);
   return (
     <Container>
       <div className="my-28">
@@ -82,8 +95,8 @@ const UpdateProduct = () => {
                   <Input
                     id="productName"
                     type="text"
-                    defaultValue={defaultProductName}
-                    // value={productName}
+                    // defaultValue={productName}
+                    value={productName}
                     onChange={(e) => setProductName(e.target.value)}
                   />
                 </div>
@@ -92,8 +105,8 @@ const UpdateProduct = () => {
                   <Input
                     id="sportsCategory"
                     type="text"
-                    // value={sportsCategory}
-                    defaultValue={defaultSportsCategory}
+                    value={sportsCategory}
+                    // defaultValue={sportsCategory}
                     onChange={(e) => setSportsCategory(e.target.value)}
                   />
                 </div>
@@ -106,8 +119,8 @@ const UpdateProduct = () => {
                   <Input
                     id="stockQuantity"
                     type="number"
-                    // value={stockQuantity}
-                    defaultValue={defaultStockQuantity}
+                    value={stockQuantity}
+                    // defaultValue={stockQuantity}
                     onChange={(e) =>
                       setStockQuantity(parseFloat(e.target.value))
                     }
@@ -118,8 +131,8 @@ const UpdateProduct = () => {
                   <Input
                     id="brand"
                     type="text"
-                    // value={brand}
-                    defaultValue={defaultBrand}
+                    value={brand}
+                    // defaultValue={brand}
                     onChange={(e) => setBrand(e.target.value)}
                   />
                 </div>
@@ -132,8 +145,9 @@ const UpdateProduct = () => {
                   <Input
                     id="rating"
                     type="number"
-                    // value={rating}
-                    defaultValue={defaultRating}
+                    step="any"
+                    value={rating}
+                    // defaultValue={rating}
                     onChange={(e) => setRating(parseFloat(e.target.value))}
                   />
                 </div>
@@ -144,8 +158,8 @@ const UpdateProduct = () => {
                   <Input
                     id="productDescription"
                     type="text"
-                    // value={productDescription}
-                    defaultValue={defaultProductDescription}
+                    value={productDescription}
+                    // defaultValue={productDescription}
                     onChange={(e) => setProductDescription(e.target.value)}
                   />
                 </div>
@@ -158,8 +172,8 @@ const UpdateProduct = () => {
                   <Input
                     id="price"
                     type="number"
-                    // value={price}
-                    defaultValue={defaultPrice}
+                    value={price}
+                    // defaultValue={price}
                     onChange={(e) => setPrice(parseFloat(e.target.value))}
                   />
                 </div>
@@ -168,8 +182,8 @@ const UpdateProduct = () => {
                   <Input
                     id="image"
                     type="text"
-                    // value={image}
-                    defaultValue={defaultImage}
+                    value={image}
+                    // defaultValue={image}
                     onChange={(e) => setImage(e.target.value)}
                   />
                 </div>
