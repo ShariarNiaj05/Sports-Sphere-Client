@@ -198,8 +198,8 @@ const UpdateProduct = () => {
                 </div>
               </div>
             </CardContent>
-            <CardFooter>
-              <Button>Update Product</Button>
+            <CardFooter className="flex justify-center">
+              <Button variant={"outline"}>Update Product</Button>
             </CardFooter>
           </Card>
         </form>

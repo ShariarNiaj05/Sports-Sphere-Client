@@ -132,8 +132,8 @@ const AddProduct = () => {
             </div>
           </div>
         </CardContent>
-        <CardFooter>
-          <Button>Add Product</Button>
+        <CardFooter className="flex justify-center">
+          <Button variant={"outline"}>Add Product</Button>
         </CardFooter>
       </Card>
     </form>
