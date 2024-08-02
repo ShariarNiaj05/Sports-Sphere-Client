@@ -5,6 +5,15 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { useAddProductMutation } from "@/redux/api/baseApi";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState<string>("");
@@ -32,12 +41,12 @@ const AddProduct = () => {
       image,
     };
     console.log("payload:", payload);
-    const result = await addProduct(payload);
+    /* const result = await addProduct(payload);
     console.log(result);
     if (result?.error) {
       toast.error("Failed to add product");
     }
-    toast.success("Product added successfully");
+    toast.success("Product added successfully"); */
   };
 
   return (
@@ -57,12 +66,32 @@ const AddProduct = () => {
             </div>
             <div className="w-1/2">
               <Label htmlFor="sportsCategory">Sports Category</Label>
-              <Input
+
+              <Select
+                onChange={(e) => setSportsCategory(e.target.value)}
+                /*  onValueChange={(value) =>
+                setFilters({ ...filters, category: value })
+              } */
+              >
+                <SelectTrigger value={sportsCategory} className="w-full ">
+                  <SelectValue placeholder="Select a sport" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Sport Category</SelectLabel>
+                    <SelectItem value="Baseball">Baseball</SelectItem>
+                    <SelectItem value="Rugby">Rugby</SelectItem>
+                    <SelectItem value="Soccer">Soccer</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+
+              {/*  <Input
                 id="sportsCategory"
                 type="text"
                 value={sportsCategory}
                 onChange={(e) => setSportsCategory(e.target.value)}
-              />
+              /> */}
             </div>
           </div>
 
