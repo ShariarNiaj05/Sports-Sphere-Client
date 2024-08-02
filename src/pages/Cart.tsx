@@ -119,16 +119,18 @@ const Cart = () => {
             <div className="basis-1/4 border-2 p-2 rounded-md flex flex-col justify-between">
               <div>
                 <p className="text-xl font-bold mb-3">
-                  Subtotal: <span className="text-primary">${subtotal}</span>
+                  Subtotal:{" "}
+                  <span className="text-primary">${subtotal?.toFixed(2)}</span>
                 </p>
                 <p className="text-base font-bold mb-6">
-                  15% Vat: <span className="text-primary">${vat}</span>
+                  15% Vat:{" "}
+                  <span className="text-primary">${vat?.toFixed(2)}</span>
                 </p>
 
                 <p className="text-primary  text-xl font-bold">
                   Total:{" "}
                   <span className="text-primary">
-                    ${totalPriceIncludingVAT}
+                    ${totalPriceIncludingVAT?.toFixed(2)}
                   </span>
                 </p>
               </div>
