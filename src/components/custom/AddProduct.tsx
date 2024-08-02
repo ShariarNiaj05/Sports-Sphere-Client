@@ -41,12 +41,12 @@ const AddProduct = () => {
       image,
     };
     console.log("payload:", payload);
-    /* const result = await addProduct(payload);
+    const result = await addProduct(payload);
     console.log(result);
     if (result?.error) {
       toast.error("Failed to add product");
     }
-    toast.success("Product added successfully"); */
+    toast.success("Product added successfully");
   };
 
   return (

@@ -15,6 +15,7 @@ import { Button } from "../ui/button";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 const ProductListTable = () => {
   const { data, isFetching, isLoading } = useProductQuery({});
@@ -29,9 +30,11 @@ const ProductListTable = () => {
     // console.log(id);
     const result = await deleteProduct(id);
     if (result.error) {
-      console.error("Failed to delete product:", result.error);
+      toast.error("Failed to delete product");
+      // console.error("Failed to delete product:", result.error);
     } else {
-      console.log("Product deleted successfully:", result.data);
+      toast.success("Product deleted successfully");
+      // console.log("Product deleted successfully:", result.data);
     }
   };
   return (
