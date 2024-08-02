@@ -106,12 +106,29 @@ const AddProduct = () => {
             </div>
             <div className="w-1/2">
               <Label htmlFor="brand">brand</Label>
-              <Input
+
+              <Select value={brand} onValueChange={(value) => setBrand(value)}>
+                <SelectTrigger value={sportsCategory} className="w-full ">
+                  <SelectValue placeholder="Select a Brand" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="Berlin">Berlin</SelectItem>
+                    <SelectItem value="Under Armour">Under Armour</SelectItem>
+                    <SelectItem value="Wilson">Wilson</SelectItem>
+                    <SelectItem value="Puma">Puma</SelectItem>
+                    <SelectItem value="Nike">Nike</SelectItem>
+                    <SelectItem value="Reebok">Reebok</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+
+              {/* <Input
                 id="brand"
                 type="text"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
-              />
+              /> */}
             </div>
           </div>
 
