@@ -19,7 +19,12 @@ import { IProduct } from "@/types/products";
 import { useEffect, useState } from "react";
 
 const AllProduct = () => {
-  const { data, isFetching, isLoading } = useProductQuery({});
+  const { data, isFetching, isLoading } = useProductQuery(
+    {},
+    {
+      pollingInterval: 30000,
+    }
+  );
   const [searchTerm, setSearchTerm] = useState("");
   const [filters, setFilters] = useState({
     category: "",

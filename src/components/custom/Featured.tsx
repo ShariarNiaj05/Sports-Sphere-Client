@@ -8,7 +8,12 @@ import ProductCard from "../shared/ProductCard";
 import Loading from "../shared/Loading";
 
 const Featured = () => {
-  const { data, isFetching, isLoading } = useProductQuery({});
+  const { data, isFetching, isLoading } = useProductQuery(
+    {},
+    {
+      pollingInterval: 30000,
+    }
+  );
   const products = data?.data;
   if (isFetching || isLoading) {
     <Loading />;
