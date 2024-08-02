@@ -47,7 +47,7 @@ const AddProduct = () => {
           {/* product name and sports category  */}
           <div className="flex gap-2 w-full mt-2">
             <div className="w-1/2">
-              <Label htmlFor="current">Product Name</Label>
+              <Label htmlFor="productName">Product Name</Label>
               <Input
                 id="productName"
                 type="text"
@@ -56,7 +56,7 @@ const AddProduct = () => {
               />
             </div>
             <div className="w-1/2">
-              <Label htmlFor="new">Sports Category</Label>
+              <Label htmlFor="sportsCategory">Sports Category</Label>
               <Input
                 id="sportsCategory"
                 type="text"
@@ -69,7 +69,7 @@ const AddProduct = () => {
           {/* stock quantity and brand  */}
           <div className="flex gap-2 w-full mt-2">
             <div className="w-1/2">
-              <Label htmlFor="new">Stock Quantity</Label>
+              <Label htmlFor="stockQuantity">Stock Quantity</Label>
               <Input
                 id="stockQuantity"
                 type="number"
@@ -78,7 +78,7 @@ const AddProduct = () => {
               />
             </div>
             <div className="w-1/2">
-              <Label htmlFor="current">brand</Label>
+              <Label htmlFor="brand">brand</Label>
               <Input
                 id="brand"
                 type="text"
@@ -91,7 +91,7 @@ const AddProduct = () => {
           {/* rating and product description  */}
           <div className="flex gap-2 w-full mt-2">
             <div className="w-1/2">
-              <Label htmlFor="new">Rating</Label>
+              <Label htmlFor="rating">Rating</Label>
               <Input
                 id="rating"
                 type="number"
@@ -100,7 +100,7 @@ const AddProduct = () => {
               />
             </div>
             <div className="w-1/2">
-              <Label htmlFor="current">Product Description</Label>
+              <Label htmlFor="productDescription">Product Description</Label>
               <Input
                 id="productDescription"
                 type="text"
@@ -113,7 +113,7 @@ const AddProduct = () => {
           {/* price and image url  */}
           <div className="flex gap-2 w-full mt-2">
             <div className="w-1/2">
-              <Label htmlFor="new">Price ($)</Label>
+              <Label htmlFor="price">Price ($)</Label>
               <Input
                 id="price"
                 type="number"
@@ -122,7 +122,7 @@ const AddProduct = () => {
               />
             </div>
             <div className="w-1/2">
-              <Label htmlFor="current">Image URL</Label>
+              <Label htmlFor="image">Image URL</Label>
               <Input
                 id="image"
                 type="text"
