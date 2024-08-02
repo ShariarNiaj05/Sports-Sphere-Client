@@ -68,13 +68,11 @@ const AddProduct = () => {
               <Label htmlFor="sportsCategory">Sports Category</Label>
 
               <Select
-                onChange={(e) => setSportsCategory(e.target.value)}
-                /*  onValueChange={(value) =>
-                setFilters({ ...filters, category: value })
-              } */
+                value={sportsCategory}
+                onValueChange={(value) => setSportsCategory(value)}
               >
                 <SelectTrigger value={sportsCategory} className="w-full ">
-                  <SelectValue placeholder="Select a sport" />
+                  <SelectValue placeholder="Select a Category" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
