@@ -20,6 +20,8 @@ import { addToCart, ICartProduct } from "@/redux/features/cartSlice";
 import { RootState } from "@/redux/store";
 import Loading from "@/components/shared/Loading";
 import { toast } from "sonner";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -53,8 +55,13 @@ const SingleProduct = () => {
         {/* image div  */}
         <div>
           <CardHeader className="p-2">
-            <img
+            <LazyLoadImage
               src={product?.image}
+              // delayTime={300}
+              effect={"blur"}
+              wrapperProps={{
+                style: { transitionDelay: "1s" },
+              }}
               className="h-[400px] w-full object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
               alt={product?.productName}
             />

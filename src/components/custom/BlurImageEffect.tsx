@@ -8,7 +8,6 @@ const BlurImageEffect = (imageUrl: string, productName: string) => {
       // delayTime={300}
       effect={"blur"}
       wrapperProps={{
-        // If you need to, you can tweak the effect transition using the wrapper style.
         style: { transitionDelay: "1s" },
       }}
       className="h-[400px] w-full object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
