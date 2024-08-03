@@ -14,16 +14,34 @@ import { Star } from "lucide-react";
 import { IProduct } from "@/types/products";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import BlurImageEffect from "../custom/BlurImageEffect";
 
 const ProductCard = ({ product }: { product: IProduct }) => {
   return (
     <Card className="text-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <CardHeader className="p-2">
-        <img
+        <BlurImageEffect
+          imageUrl={product?.image}
+          productName={product?.productName}
+        />
+        {/*  <LazyLoadImage
+          src={product?.image}
+          // delayTime={300}
+          effect={"blur"}
+          wrapperProps={{
+            // If you need to, you can tweak the effect transition using the wrapper style.
+            style: { transitionDelay: "1s" },
+          }}
+          className="h-[400px] w-full object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
+          alt={product?.productName}
+        /> */}
+        {/* <img
           src={product?.image}
           className="h-[400px] w-full object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
           alt={product?.productName}
-        />
+        /> */}
       </CardHeader>
       <CardContent className="grid p-4">
         <div className="flex justify-between items-center gap-2">

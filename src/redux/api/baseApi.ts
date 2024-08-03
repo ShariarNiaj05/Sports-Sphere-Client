@@ -15,7 +15,7 @@ export const baseApi = createApi({
         method: "GET",
       }),
       providesTags: ["Product"],
-      pollingInterval: 30000,
+      // pollingInterval: 30000,
     }),
     addProduct: builder.mutation({
       query: (body) => ({
