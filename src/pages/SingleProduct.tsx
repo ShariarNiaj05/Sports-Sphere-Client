@@ -57,10 +57,11 @@ const SingleProduct = () => {
           <CardHeader className="p-2">
             <LazyLoadImage
               src={product?.image}
-              // delayTime={300}
+              // scrollPosition={scrollPosition}  ==> on mouse scroll effect using redux
               effect={"blur"}
+              threshold={1000}
               wrapperProps={{
-                style: { transitionDelay: "1s" },
+                style: { transitionDelay: "0.5s" },
               }}
               className="h-[400px] w-full object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
               alt={product?.productName}
