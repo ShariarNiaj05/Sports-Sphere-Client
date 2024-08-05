@@ -7,6 +7,7 @@ import { ICartProduct } from "@/redux/features/cartSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const Checkout = () => {
@@ -17,7 +18,7 @@ const Checkout = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
-
+  const navigate = useNavigate();
   const [checkout, { isLoading }] = useCheckoutMutation();
 
   const handleCheckout = async () => {
@@ -36,8 +37,7 @@ const Checkout = () => {
       console.log(result);
       if (result.data.success) {
         toast.success("Checkout successful");
-        // navigate to success page where a go to home link will be shown.
-        // product quantity will be deducted.
+        navigate("/payment-success");
         // cart will be empty
       }
     } catch (err) {
