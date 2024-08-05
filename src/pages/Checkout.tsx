@@ -36,6 +36,9 @@ const Checkout = () => {
       console.log(result);
       if (result.data.success) {
         toast.success("Checkout successful");
+        // navigate to success page where a go to home link will be shown.
+        // product quantity will be deducted.
+        // cart will be empty
       }
     } catch (err) {
       toast.error("Checkout failed");
