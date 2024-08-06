@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa6";
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { ICartProduct } from "@/redux/features/cartSlice";
-
+import logo from "../../../public/logo.png";
 const Navbar = () => {
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
   return (
@@ -12,7 +12,10 @@ const Navbar = () => {
       {/* logo div  */}
       <div>
         {" "}
-        <Link to={"/"}>Sports Sphere</Link>
+        <Link to={"/"}>
+          {/* Sports Sphere */}
+          <img className="h-10 rounded" src={logo} alt="Sports Sphere Logo" />
+        </Link>
       </div>
 
       {/* pages div  */}
