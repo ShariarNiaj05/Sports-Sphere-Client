@@ -3,8 +3,8 @@ import Container from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useCheckoutMutation } from "@/redux/api/baseApi";
-import { ICartProduct } from "@/redux/features/cartSlice";
-import { useAppSelector } from "@/redux/hooks";
+import { clearCart, ICartProduct } from "@/redux/features/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import { toast } from "sonner";
 
 const Checkout = () => {
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,6 +20,7 @@ const Checkout = () => {
   const [address, setAddress] = useState("");
   const navigate = useNavigate();
   const [checkout, { isLoading }] = useCheckoutMutation();
+  console.log(cart);
 
   const handleCheckout = async () => {
     try {
@@ -37,8 +38,9 @@ const Checkout = () => {
       console.log(result);
       if (result.data.success) {
         toast.success("Checkout successful");
-        navigate("/payment-success");
         // cart will be empty
+        dispatch(clearCart());
+        navigate("/payment-success");
       }
     } catch (err) {
       toast.error("Checkout failed");

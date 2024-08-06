@@ -25,6 +25,9 @@ export const cartSlice = createSlice({
         state.push({ ...product, quantity: 1, totalPrice: product.price });
       }
     },
+    clearCart: () => {
+      return []; // reset cart to empty array
+    },
     decrementFromCart: (state, action) => {
       console.log(action);
       const product = action.payload;
@@ -43,6 +46,6 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, decrementFromCart, deleteFromCart } =
+export const { addToCart, decrementFromCart, deleteFromCart, clearCart } =
   cartSlice.actions;
 export default cartSlice.reducer;
