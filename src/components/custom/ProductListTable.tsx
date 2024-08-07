@@ -27,14 +27,11 @@ const ProductListTable = () => {
   const allProduct = data?.data;
 
   const handleDelete = async (id: string) => {
-    // console.log(id);
     const result = await deleteProduct(id);
     if (result.error) {
       toast.error("Failed to delete product");
-      // console.error("Failed to delete product:", result.error);
     } else {
       toast.success("Product deleted successfully");
-      // console.log("Product deleted successfully:", result.data);
     }
   };
   return (

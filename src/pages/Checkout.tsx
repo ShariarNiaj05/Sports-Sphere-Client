@@ -20,7 +20,6 @@ const Checkout = () => {
   const [address, setAddress] = useState("");
   const navigate = useNavigate();
   const [checkout, { isLoading }] = useCheckoutMutation();
-  console.log(cart);
 
   const handleCheckout = async () => {
     try {
@@ -35,7 +34,6 @@ const Checkout = () => {
       };
 
       const result = await checkout(payload);
-      console.log(result);
       if (result.data.success) {
         toast.success("Checkout successful");
         // cart will be empty
@@ -44,7 +42,6 @@ const Checkout = () => {
       }
     } catch (err) {
       toast.error("Checkout failed");
-      console.error("Checkout failed:", err);
     }
   };
 

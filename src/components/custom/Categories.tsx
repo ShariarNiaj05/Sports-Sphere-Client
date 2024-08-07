@@ -19,7 +19,6 @@ const Categories = () => {
     navigate(`/category/${category}`);
   };
 
-  console.log(products);
   return (
     <Container>
       <div className="my-28">

@@ -79,10 +79,8 @@ const UpdateProduct = () => {
       payload,
     };
 
-    console.log(payload);
     //   update logic
     const result = await updateProduct(parameter);
-    console.log(result);
     if (result?.error) {
       toast.error("Failed to add product");
     } else {

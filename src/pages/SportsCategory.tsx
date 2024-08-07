@@ -19,8 +19,6 @@ const SportsCategory = () => {
     return <p>Category not found</p>;
   }
 
-  console.log(sportsCategory);
-
   const filteredProducts = products?.filter(
     (product: IProduct) =>
       product?.sportsCategory.toLowerCase() ===

@@ -40,9 +40,7 @@ const AddProduct = () => {
       price,
       image,
     };
-    console.log("payload:", payload);
     const result = await addProduct(payload);
-    console.log(result);
     if (result?.error) {
       toast.error("Failed to add product");
     } else {

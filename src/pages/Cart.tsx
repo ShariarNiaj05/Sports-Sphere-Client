@@ -18,7 +18,6 @@ import { toast } from "sonner";
 const Cart = () => {
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);
   const dispatch = useAppDispatch();
-  console.log(cart);
 
   // Calculate subtotal
   const subtotal = cart.reduce((total, item) => total + item.totalPrice, 0);

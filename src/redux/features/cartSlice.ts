@@ -14,7 +14,6 @@ export const cartSlice = createSlice({
     addToCart: (state, action) => {
       const product = action.payload;
       const existingProduct = state.find((item) => item._id === product._id);
-      console.log(action);
 
       if (existingProduct) {
         if (existingProduct.quantity < product.stockQuantity) {
@@ -29,7 +28,6 @@ export const cartSlice = createSlice({
       return []; // reset cart to empty array
     },
     decrementFromCart: (state, action) => {
-      console.log(action);
       const product = action.payload;
       const existingProduct = state.find((item) => item._id === product._id);
       if (existingProduct) {

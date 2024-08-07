@@ -38,7 +38,6 @@ const SingleProduct = () => {
     (item) => item._id === product._id
   );
 
-  console.log(cart);
   const handleCart = () => {
     if (product) {
       dispatch(addToCart(product));
