@@ -45,8 +45,9 @@ const AddProduct = () => {
     console.log(result);
     if (result?.error) {
       toast.error("Failed to add product");
+    } else {
+      toast.success("Product added successfully");
     }
-    toast.success("Product added successfully");
   };
 
   return (
