@@ -23,11 +23,12 @@ import { toast } from "sonner";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import SimilarProducts from "@/components/custom/SimilarProducts";
+import { useSingleProductsData } from "@/utils/products";
 
 const SingleProduct = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const { data, isLoading, isFetching } = useSingleProductQuery(id);
+  const { data, isLoading, isFetching } = useSingleProductsData(id as string);
   const product = data?.data;
 
   const cart: ICartProduct[] = useAppSelector((state: RootState) => state.cart);

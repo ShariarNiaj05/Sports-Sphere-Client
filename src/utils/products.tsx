@@ -1,4 +1,4 @@
-import { useProductQuery } from "@/redux/api/baseApi";
+import { useProductQuery, useSingleProductQuery } from "@/redux/api/baseApi";
 
 export const useAllProducts = () => {
   const { data, isFetching, isLoading } = useProductQuery(
@@ -13,4 +13,10 @@ export const useAllProducts = () => {
     isFetching,
     isLoading,
   };
+};
+
+export const useSingleProductsData = (id: string) => {
+  const { data, isLoading, isFetching } = useSingleProductQuery(id);
+
+  return { data, isLoading, isFetching };
 };
