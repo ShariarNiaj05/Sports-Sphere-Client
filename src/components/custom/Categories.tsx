@@ -12,7 +12,7 @@ const Categories = () => {
   const { data, isFetching, isLoading } = useProductQuery({});
   const products = data?.data;
   const navigate = useNavigate();
-  if (isFetching || isLoading) {
+  if (isFetching || isLoading || !products) {
     <Loading />;
   }
   const handleCategoryClick = (category: string) => {
