@@ -1,4 +1,3 @@
-import { useProductQuery } from "@/redux/api/baseApi";
 import Container from "../shared/Container";
 import Title from "./Title";
 
@@ -6,14 +5,10 @@ import { IProduct } from "@/types/products";
 
 import ProductCard from "../shared/ProductCard";
 import Loading from "../shared/Loading";
+import { useAllProducts } from "@/utils/products";
 
 const Featured = () => {
-  const { data, isFetching, isLoading } = useProductQuery(
-    {},
-    {
-      pollingInterval: 30000,
-    }
-  );
+  const { data, isFetching, isLoading } = useAllProducts();
   const products = data?.data;
   if (isFetching || isLoading) {
     <Loading />;
