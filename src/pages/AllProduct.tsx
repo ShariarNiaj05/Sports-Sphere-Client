@@ -14,17 +14,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
-import { useProductQuery } from "@/redux/api/baseApi";
+// import { useProductQuery } from "@/redux/api/baseApi";
 import { IProduct } from "@/types/products";
+import { useAllProducts } from "@/utils/products";
 import { useEffect, useState } from "react";
 
 const AllProduct = () => {
-  const { data, isFetching, isLoading } = useProductQuery(
-    {},
-    {
-      pollingInterval: 30000,
-    }
-  );
+  const { data, isFetching, isLoading } = useAllProducts();
   const [searchTerm, setSearchTerm] = useState("");
   const [filters, setFilters] = useState({
     category: "",
