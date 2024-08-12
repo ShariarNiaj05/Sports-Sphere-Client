@@ -82,13 +82,6 @@ const AddProduct = () => {
                   </SelectGroup>
                 </SelectContent>
               </Select>
-
-              {/*  <Input
-                id="sportsCategory"
-                type="text"
-                value={sportsCategory}
-                onChange={(e) => setSportsCategory(e.target.value)}
-              /> */}
             </div>
           </div>
 
@@ -121,13 +114,6 @@ const AddProduct = () => {
                   </SelectGroup>
                 </SelectContent>
               </Select>
-
-              {/* <Input
-                id="brand"
-                type="text"
-                value={brand}
-                onChange={(e) => setBrand(e.target.value)}
-              /> */}
             </div>
           </div>
 
