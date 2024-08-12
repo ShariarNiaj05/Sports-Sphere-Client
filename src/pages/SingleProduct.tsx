@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useSingleProductQuery } from "@/redux/api/baseApi";
 import { useParams } from "react-router-dom";
 import { PiSoccerBallFill } from "react-icons/pi";
 import { MdOutlineSportsRugby } from "react-icons/md";
