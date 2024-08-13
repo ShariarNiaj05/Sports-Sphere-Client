@@ -15,8 +15,6 @@ const SimilarProducts = ({ sportsCategory }: { sportsCategory: string }) => {
   const matchedCategoryProducts = allProducts?.filter(
     (products: IProduct) => products?.sportsCategory === sportsCategory
   );
-
-  console.log(matchedCategoryProducts);
   return (
     <Container>
       <div className="mt-20 mb-10">
@@ -25,7 +23,7 @@ const SimilarProducts = ({ sportsCategory }: { sportsCategory: string }) => {
 
       {/* All Product section  */}
       <div className=" mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {matchedCategoryProducts?.map((product: IProduct) => (
+        {matchedCategoryProducts?.slice(0, 6)?.map((product: IProduct) => (
           <ProductCard product={product} />
         ))}
       </div>
