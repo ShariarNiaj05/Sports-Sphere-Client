@@ -127,7 +127,7 @@ const SingleProduct = () => {
       </div>
 
       <div>
-        <SimilarProducts />
+        <SimilarProducts sportsCategory={product?.sportsCategory} />
       </div>
     </Container>
   );
