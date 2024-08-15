@@ -27,6 +27,12 @@ const AddProduct = () => {
 
   const [addProduct] = useAddProductMutation();
 
+  // progress percentage implementation
+  /* 
+  const dispatch = useDispatch();
+  const progressValue = useSelector((state) => state.progress.value); 
+  */
+
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
