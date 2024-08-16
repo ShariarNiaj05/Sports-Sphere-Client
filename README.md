@@ -16,14 +16,49 @@ The primary purpose of Sports Sphere is to create a comprehensive and user-frien
 
 - Diverse Selection: Offer a vast array of sporting goods, including equipment, apparel, and accessories for popular sports.
 
-- Unified User Role: Implement a unique user system where a single account can handle both customer and admin tasks. This includes browsing products, making purchases, tracking orders, and managing account settings.
+- User Role: Implement a unique user system where a single account can handle both customer and admin tasks. This includes browsing products, making purchases, tracking orders, and managing account settings.
 
 - Intuitive Interface: Design an intuitive and visually appealing interface that simplifies navigation, enhances user engagement, and makes the shopping process enjoyable and hassle-free.
 
 ## Features
 
-- List of key features or functionalities.
-- Bullet points are helpful for clarity.
+### Homepage
+
+- Hero Section: Carousel with discount information and compelling visuals.
+- Featured Products: Cards displaying latest products with key details, ratings, and a "View Details" button.
+- Product Categories: Clearly defined categories with links to relevant product listings.
+
+### Product Listing (All Products Page)
+
+- Search Functionality: Robust search bar to find products by name.
+  Filter Options: Allow users to filter products by category, price, brand, rating, etc.
+- Sorting: Options to sort products by price (ascending or descending).
+- Clear Filter Button: Resets all filters.
+
+### Product Details (Single Product Page)
+
+- Product Information: Detailed view with name, description, category, brand, stock, ratings, price, and images.
+- Add to Cart: Button with functionality to add products to the cart, considering stock availability and preventing duplicates.
+
+### Cart Page
+
+- Product Summary: Displays items added to the cart with quantity and total price.
+- Quantity Adjustment: Allows users to increase or decrease product quantities.
+- Remove Item: Option to remove products from the cart.
+  Total Price: Calculates total price including VAT.
+- Proceed to Checkout: Button enabled only when products are in stock, leading to the checkout page.
+
+### Checkout Page
+
+- User Information: Collects necessary details like name, email, phone number, and delivery address.
+- Payment Options: Offers Cash on Delivery.
+- Order Confirmation: Displays order summary and confirmation message post-payment.
+
+### Manage Products
+
+- Product CRUD: Create, read, update, and delete products using RTK Query.
+- User-Friendly Interface: Intuitive form design with pre-filled data for updates.
+- Feedback Mechanisms: Inform users about actions through modals or toasts.
 
 ## Technology Stack
 
