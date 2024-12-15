@@ -31,6 +31,17 @@ const sliderData = [
 ];
 
 const ProductCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderData.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + sliderData.length) % sliderData.length
+    );
+  };
   return <div>ProductCarousel</div>;
 };
 
