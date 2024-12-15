@@ -42,7 +42,47 @@ const ProductCarousel = () => {
       (prevIndex) => (prevIndex - 1 + sliderData.length) % sliderData.length
     );
   };
-  return <div>ProductCarousel</div>;
+  return (
+    <div className="relative w-full max-w-4xl mx-auto">
+      <div className="overflow-hidden aspect-video">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute w-full h-full"
+          >
+            {sliderData[currentIndex].type === "3d" ? (
+              <ProductViewer isActive={true} />
+            ) : (
+              <img
+                src={sliderData[currentIndex].image}
+                alt={`Slide ${currentIndex + 1}`}
+                className="w-full h-full object-cover"
+              />
+            )}
+            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+              <p>{sliderData[currentIndex].discountInfo}</p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2"
+      >
+        &#10094;
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2"
+      >
+        &#10095;
+      </button>
+    </div>
+  );
 };
 
 export default ProductCarousel;
