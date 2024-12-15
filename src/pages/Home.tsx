@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
+      {/* notion sync checking */}
       <Featured />
       <Categories />
       <Contact />
