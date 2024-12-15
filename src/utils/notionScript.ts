@@ -1,11 +1,18 @@
 import { Client } from "@notionhq/client";
 import simpleGit from "simple-git";
+import { NotionToMarkdown } from "notion-to-md";
 import fs from "fs";
 
 // Notion API Setup
 const notion = new Client({ auth: process.env.VITE_NOTION_SECRET });
 const PAGE_ID =
   "https://shariar-islam.notion.site/Common-Path-Not-Going-to-Focus-This-c63f27b879c74044a15d41a79bc5e64b?pvs=4"; // Replace with your Notion page ID
+
+// Initialize the Notion API
+const notion = new Client({ auth: process.env.VITE_NOTION_SECRET });
+
+// Initialize Notion-to-Markdown library
+const n2m = new NotionToMarkdown({ notionClient: notion });
 
 // Git Setup
 const git = simpleGit();
