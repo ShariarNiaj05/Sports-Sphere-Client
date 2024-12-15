@@ -1,3 +1,6 @@
+import React from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stage, PerspectiveCamera } from "@react-three/drei";
 const ProductViewer = ({ isActive }) => {
   return (
     <div
