@@ -42,3 +42,33 @@ async function exportNotionPage(pageId, outputPath) {
     throw err;
   }
 }
+
+
+
+// Push changes to Git
+async function pushToGit(filePath) {
+  try {
+    const git = simpleGit(GITHUB_REPO_PATH);
+
+    // Configure git user
+    await git.addConfig('user.name', process.env.GIT_USER_NAME || 'Notion Sync Bot');
+    await git.addConfig('user.email', process.env.GIT_USER_EMAIL || 'notion-sync@example.com');
+
+    // Check if there are any changes
+    const status = await git.status();
+    if (status.files.length === 0) {
+      console.log("No changes to commit.");
+      return;
+    }
+
+    // Add, commit, and push
+    await git.add(filePath);
+    await git.commit("Update notes from Notion");
+    await git.push('origin', 'main');
+
+    console.log("Notes pushed to GitHub successfully!");
+  } catch (err) {
+    console.error("Failed to push to GitHub:", err);
+    throw err;
+  }
+}
