@@ -18,3 +18,27 @@ const GITHUB_REPO_PATH = path.resolve(process.cwd()); // Assumes script runs in 
 
 // Initialize Notion-to-Markdown library
 const n2m = new NotionToMarkdown({ notionClient: notion });
+
+
+// Export a Notion page to Markdown
+async function exportNotionPage(pageId, outputPath) {
+  try {
+    console.log("Fetching content from Notion...");
+    const mdBlocks = await n2m.pageToMarkdown(pageId);
+    const markdown = n2m.toMarkdownString(mdBlocks);
+
+    // Ensure directory exists
+    const dir = path.dirname(outputPath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+
+    // Save as notes.md
+    fs.writeFileSync(outputPath, markdown);
+    console.log(`Content saved to ${outputPath}`);
+    return outputPath;
+  } catch (err) {
+    console.error("Failed to export Notion page:", err);
+    throw err;
+  }
+}
