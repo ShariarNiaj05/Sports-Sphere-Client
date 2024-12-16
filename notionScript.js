@@ -4,6 +4,7 @@ import simpleGit from "simple-git";
 import { NotionToMarkdown } from "notion-to-md";
 import dotenv from "dotenv";
 import fs from "fs";
+import path from "path";
 
 // Configure dotenv to load environment variables
 dotenv.config();
