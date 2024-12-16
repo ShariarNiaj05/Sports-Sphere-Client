@@ -72,3 +72,18 @@ async function pushToGit(filePath) {
     throw err;
   }
 }
+
+
+// Main execution function
+async function syncNotionToGitHub() {
+  try {
+    const outputPath = await exportNotionPage(NOTION_PAGE_ID, OUTPUT_PATH);
+    await pushToGit(outputPath);
+  } catch (error) {
+    console.error("Synchronization failed:", error);
+    process.exit(1);
+  }
+}
+
+// Run the sync
+syncNotionToGitHub();
