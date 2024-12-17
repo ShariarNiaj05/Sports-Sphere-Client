@@ -13,7 +13,8 @@ dotenv.config();
 const notion = new Client({ auth: process.env.VITE_NOTION_SECRET });
 
 // GitHub Sync Configuration
-const NOTION_PAGE_ID = process.env.NOTION_PAGE_ID || "c63f27b879c74044a15d41a79bc5e64b";
+// const NOTION_PAGE_ID = process.env.NOTION_PAGE_ID || "c63f27b879c74044a15d41a79bc5e64b";
+const NOTION_PAGE_ID = process.env.NOTION_PAGE_ID;
 const OUTPUT_PATH = path.resolve(process.cwd(), "notes.md");
 const GITHUB_REPO_PATH = path.resolve(process.cwd()); // Assumes script runs in repo root
 
