@@ -52,6 +52,8 @@ async function pushToGit(filePath) {
   try {
     const git = simpleGit(GITHUB_REPO_PATH);
 
+    console.log("git status", git);
+
     // Configure git user
     await git.addConfig('user.name', process.env.GIT_USER_NAME || 'Notion Sync Bot');
     await git.addConfig('user.email', process.env.GIT_USER_EMAIL || 'notion-sync@example.com');
