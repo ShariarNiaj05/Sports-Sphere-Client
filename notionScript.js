@@ -50,6 +50,7 @@ async function exportNotionPage(pageId, outputPath) {
 // Push changes to Git
 async function pushToGit(filePath) {
   try {
+    console.log("filePath payload", filePath);
     const git = simpleGit(GITHUB_REPO_PATH);
 
     console.log("git status", git);
